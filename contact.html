@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Kontak — Media Asia Property Batam</title>
+  <title data-i18n="contact_page_title">Kontak — Media Asia Property Batam</title>
   <meta name="description" content="Hubungi PT Media Asia Batam untuk konsultasi properti, dokumen legal, arsitektur & konstruksi. Kantor di Batam Center." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="assets/css/output.css" />
   <link rel="stylesheet" href="assets/css/contact.css" />
@@ -27,18 +27,19 @@
         <img src="assets/img/13.png" alt="Media Asia Batam Logo" class="w-full h-full object-contain">
       </div>
       <div class="nav-logo-text">
-        <span class="nav-logo-title">Media Asia</span>
-        <span class="nav-logo-sub">Batam</span>
+        <span class="nav-logo-title" data-i18n="nav_logo_title">Media Asia</span>
+        <span class="nav-logo-sub" data-i18n="nav_logo_sub">Batam</span>
       </div>
     </a>
 
     <!-- Desktop nav -->
     <nav class="nav-links-wrap" aria-label="Navigasi desktop">
       <ul class="nav-links">
-        <li><a href="index.html"   class="nav-link" data-i18n="nav_home">Beranda</a></li>
-        <li><a href="about.html"   class="nav-link" data-i18n="nav_about">Tentang Kami</a></li>
-        <li><a href="layanan.html" class="nav-link" data-i18n="nav_services">Layanan</a></li>
-        <li><a href="contact.html" class="nav-link" data-i18n="nav_contact">Kontak</a></li>
+        <li><a href="index.html"                  class="nav-link" data-i18n="nav_home">Beranda</a></li>
+        <li><a href="dokumenlegal.html"            class="nav-link" data-i18n="nav_dokumen">Dokumen Legal</a></li>
+        <li><a href="agent-property.html"          class="nav-link" data-i18n="nav_agentProperty">Agent Property</a></li>
+        <li><a href="arsitektur-mekanikal.html"    class="nav-link" data-i18n="nav_arsiMekanikal">Arsitektur &amp; Mekanikal</a></li>
+        <li><a href="contact.html"                 class="nav-link" data-i18n="nav_contact">Kontak</a></li>
       </ul>
     </nav>
 
@@ -52,17 +53,14 @@
           <img src="assets/img/united-kingdom.png" alt="" aria-hidden="true"> EN
         </button>
       </div>
-      <a href="contact.html" class="nav-cta btn-primary" data-i18n="nav_cta">Konsultasi Gratis</a>
+      <!-- Hamburger -->
+      <button id="hamburger" class="nav-hamburger"
+              aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu">
+        <span class="hb-bar hb-bar-1"></span>
+        <span class="hb-bar hb-bar-2"></span>
+        <span class="hb-bar hb-bar-3"></span>
+      </button>
     </div>
-
-    <!-- Hamburger -->
-    <button id="hamburger" class="nav-hamburger"
-            aria-label="Buka menu" aria-expanded="false" aria-controls="mobile-menu">
-      <span class="hb-bar hb-bar-1"></span>
-      <span class="hb-bar hb-bar-2"></span>
-      <span class="hb-bar hb-bar-3"></span>
-    </button>
-
   </div>
 </header>
 
@@ -78,14 +76,20 @@
         </a>
       </li>
       <li>
-        <a href="about.html" class="nav-link" data-i18n="nav_about">
-          Tentang Kami
+        <a href="agent-property.html" class="nav-link" data-i18n="nav_agentProperty">
+          Agent Property
           <svg class="mob-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6"/></svg>
         </a>
       </li>
       <li>
-        <a href="layanan.html" class="nav-link" data-i18n="nav_services">
-          Layanan
+        <a href="arsitektur-mekanikal.html" class="nav-link" data-i18n="nav_arsiMekanikal">
+          Arsitektur &amp; Mekanikal
+          <svg class="mob-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6"/></svg>
+        </a>
+      </li>
+      <li>
+        <a href="dokumenlegal.html" class="nav-link" data-i18n="nav_dokumen">
+          Dokumen Legal
           <svg class="mob-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M4 10h12M10 4l6 6-6 6"/></svg>
         </a>
       </li>
@@ -105,12 +109,9 @@
           <img src="assets/img/united-kingdom.png" alt="" aria-hidden="true"> EN
         </button>
       </div>
-      <a href="contact.html" class="mob-cta" data-i18n="nav_cta">Konsultasi Gratis</a>
     </div>
   </div>
 </div>
-</header>
-
 
 <!-- =====================================================================
      HERO KONTAK
@@ -127,19 +128,22 @@
     <div class="max-w-2xl">
       <div class="flex items-center gap-3 mb-5 reveal">
         <span class="w-8 h-px bg-gold"></span>
-        <span class="section-label text-gold/90" data-i18n="contact_label">
+        <!-- FIX: pakai contact_hero_label sesuai definisi i18n untuk hero section -->
+        <span class="section-label text-gold/90" data-i18n="contact_hero_label">
           Hubungi Kami
         </span>
       </div>
 
+      <!-- FIX: pakai contact_hero_title sesuai definisi i18n untuk hero section -->
       <h1 id="contact-hero-heading"
           class="font-display text-display-xl text-white leading-[1.06] mb-5 text-balance reveal reveal-delay-1"
-          data-i18n="contact_title">
+          data-i18n="contact_hero_title">
         Mulai Konsultasi Hari Ini
       </h1>
 
+      <!-- FIX: pakai contact_hero_sub sesuai definisi i18n untuk hero section -->
       <p class="text-white/60 text-lg leading-relaxed max-w-lg reveal reveal-delay-2"
-         data-i18n="contact_sub">
+         data-i18n="contact_hero_sub">
         Tim ahli kami siap membantu Anda menemukan solusi properti terbaik di Batam. Konsultasi pertama gratis.
       </p>
 
@@ -150,9 +154,7 @@
            data-i18n="nav_home">
           Beranda
         </a>
-
         <span class="text-white/20 text-xs">/</span>
-
         <span class="text-gold text-xs font-semibold"
               data-i18n="nav_contact">
           Kontak
@@ -181,6 +183,7 @@
 
         <!-- Intro -->
         <div class="reveal">
+          <!-- FIX: section ini gunakan contact_label & contact_title (bukan hero variant) -->
           <span class="section-label" data-i18n="contact_label">
             Hubungi Kami
           </span>
@@ -199,18 +202,12 @@
 
           <!-- Alamat -->
           <div class="contact-info-card" data-tilt>
-            <div class="contact-info-card__icon">
-              <!-- icon -->
-            </div>
-
+            <div class="contact-info-card__icon"></div>
             <div class="contact-info-card__body">
-              <p class="contact-info-card__label"
-                 data-i18n="contact_addr_lbl">
+              <p class="contact-info-card__label" data-i18n="contact_addr_lbl">
                 Alamat Kantor
               </p>
-
-              <p class="contact-info-card__value"
-                 data-i18n="contact_addr">
+              <p class="contact-info-card__value" data-i18n="contact_addr">
                 Komplek Ruko Indah Gemilang Blok B 10 &amp; 11, Batam Center, Batam, Kepulauan Riau
               </p>
             </div>
@@ -220,15 +217,11 @@
           <a href="mailto:mediaasiaproperty@gmail.com"
              class="contact-info-card contact-info-card--link"
              data-tilt>
-
             <div class="contact-info-card__body">
-              <p class="contact-info-card__label"
-                 data-i18n="contact_email_lbl">
+              <p class="contact-info-card__label" data-i18n="contact_email_lbl">
                 Email
               </p>
-
-              <p class="contact-info-card__value"
-                 data-i18n="contact_email">
+              <p class="contact-info-card__value" data-i18n="contact_email">
                 mediaasiaproperty@gmail.com
               </p>
             </div>
@@ -237,19 +230,15 @@
           <!-- Telepon -->
           <div class="contact-info-card" data-tilt>
             <div class="contact-info-card__body">
-
-              <p class="contact-info-card__label"
-                 data-i18n="contact_phone_lbl">
+              <p class="contact-info-card__label" data-i18n="contact_phone_lbl">
                 Telepon
               </p>
-
               <div class="space-y-1">
                 <a href="tel:+6285388881590"
                    class="contact-info-card__value block hover:text-gold transition-colors"
                    data-i18n="contact_phone1">
                   +62 853 8888 8159
                 </a>
-
                 <a href="tel:+628117740060"
                    class="contact-info-card__value block hover:text-gold transition-colors"
                    data-i18n="contact_phone2">
@@ -261,32 +250,29 @@
 
           <!-- Jam Operasional -->
           <div class="contact-info-card" data-tilt>
-
             <div class="contact-info-card__body">
-
-              <p class="contact-info-card__label"
-                 data-i18n="contact_hours_lbl">
+              <p class="contact-info-card__label" data-i18n="contact_hours_lbl">
                 Jam Operasional
               </p>
-
               <div class="space-y-0.5">
-
-                <p class="contact-info-card__value"
-                   data-i18n="contact_hours_weekday">
+                <p class="contact-info-card__value" data-i18n="contact_hours_weekday">
                   Senin – Jumat: 08.00 – 17.00
                 </p>
-
-                <p class="text-xs text-slate-muted"
-                   data-i18n="contact_hours_saturday">
+                <p class="text-xs text-slate-muted" data-i18n="contact_hours_saturday">
                   Sabtu: 09.00 – 14.00 WIB
                 </p>
-
               </div>
             </div>
-
+            <!--
+              FIX: Tambah data-i18n-closed agar JS bisa ganti teks saat kantor tutup.
+              Gunakan data-i18n="contact_status_open" untuk teks default (Buka),
+              dan data-i18n-closed="contact_status_closed" untuk teks saat tutup (Tutup).
+              ContactController.js harus membaca kedua atribut ini.
+            -->
             <span class="office-status shrink-0 ml-auto"
                   id="officeStatus"
-                  data-i18n="contact_status_open">
+                  data-i18n="contact_status_open"
+                  data-i18n-closed="contact_status_closed">
               Buka
             </span>
           </div>
@@ -294,28 +280,23 @@
 
         <!-- Social Media -->
         <div class="reveal reveal-delay-2">
-
           <p class="text-xs font-semibold tracking-widest uppercase text-slate-muted mb-4"
              data-i18n="contact_social_lbl">
             Media Sosial
           </p>
-
         </div>
       </div>
 
       <!-- ── RIGHT: Form Kontak ── -->
       <div class="lg:col-span-3 reveal--right">
-
         <div class="contact-form-wrapper">
 
           <!-- Form header -->
           <div class="contact-form-header">
-
             <h3 class="font-display text-2xl font-semibold text-navy"
                 data-i18n="form_title">
               Kirim Pesan
             </h3>
-
             <p class="text-slate-muted text-sm mt-1"
                data-i18n="form_subtitle">
               Kami akan membalas dalam 1×24 jam kerja.
@@ -326,28 +307,24 @@
           <div class="flex flex-wrap gap-2 mb-6"
                role="group"
                aria-label="Pilih layanan">
-
             <button class="service-tab service-tab--active"
                     data-service="legal"
                     data-i18n="form_tab_legal"
                     type="button">
               📄 Dokumen Legal
             </button>
-
             <button class="service-tab"
                     data-service="properti"
                     data-i18n="form_tab_property"
                     type="button">
               🏠 Properti
             </button>
-
             <button class="service-tab"
                     data-service="arsitektur"
                     data-i18n="form_tab_arch"
                     type="button">
               📐 Arsitektur
             </button>
-
             <button class="service-tab"
                     data-service="mep"
                     data-i18n="form_tab_mep"
@@ -364,13 +341,11 @@
 
             <!-- Nama -->
             <div class="form-group" id="nameGroup">
-
               <label for="contactName"
                      class="form-label"
                      data-i18n="form_name">
                 Nama Lengkap
               </label>
-
               <input type="text"
                      id="contactName"
                      name="name"
@@ -381,13 +356,11 @@
 
             <!-- Telepon -->
             <div class="form-group" id="phoneGroup">
-
               <label for="contactPhone"
                      class="form-label"
                      data-i18n="form_phone">
                 Nomor Telepon
               </label>
-
               <input type="tel"
                      id="contactPhone"
                      name="phone"
@@ -398,13 +371,11 @@
 
             <!-- Email -->
             <div class="form-group" id="emailGroup">
-
               <label for="contactEmail"
                      class="form-label"
                      data-i18n="form_email">
                 Email
               </label>
-
               <input type="email"
                      id="contactEmail"
                      name="email"
@@ -415,13 +386,11 @@
 
             <!-- Pesan -->
             <div class="form-group" id="msgGroup">
-
               <label for="contactMsg"
                      class="form-label"
                      data-i18n="form_message">
                 Pesan
               </label>
-
               <textarea id="contactMsg"
                         name="message"
                         rows="5"
@@ -432,48 +401,22 @@
 
             <!-- Prefer -->
             <div class="form-group">
-
-              <label class="form-label"
-                     data-i18n="form_prefer">
+              <label class="form-label" data-i18n="form_prefer">
                 Preferensi Respon
               </label>
-
               <div class="prefer-group">
-
                 <label class="prefer-option">
-                  <input type="radio"
-                         name="prefer"
-                         value="whatsapp"
-                         checked />
-
-                  <span class="prefer-label"
-                        data-i18n="form_prefer_wa">
-                    WhatsApp
-                  </span>
+                  <input type="radio" name="prefer" value="whatsapp" checked />
+                  <span class="prefer-label" data-i18n="form_prefer_wa">WhatsApp</span>
                 </label>
-
                 <label class="prefer-option">
-                  <input type="radio"
-                         name="prefer"
-                         value="email" />
-
-                  <span class="prefer-label"
-                        data-i18n="form_prefer_email">
-                    Email
-                  </span>
+                  <input type="radio" name="prefer" value="email" />
+                  <span class="prefer-label" data-i18n="form_prefer_email">Email</span>
                 </label>
-
                 <label class="prefer-option">
-                  <input type="radio"
-                         name="prefer"
-                         value="telepon" />
-
-                  <span class="prefer-label"
-                        data-i18n="form_prefer_phone">
-                    Telepon
-                  </span>
+                  <input type="radio" name="prefer" value="telepon" />
+                  <span class="prefer-label" data-i18n="form_prefer_phone">Telepon</span>
                 </label>
-
               </div>
             </div>
 
@@ -481,35 +424,27 @@
             <button type="submit"
                     class="contact-submit-btn"
                     id="submitBtn">
-
-              <span class="contact-submit-btn__text"
-                    data-i18n="form_submit">
+              <span class="contact-submit-btn__text" data-i18n="form_submit">
                 Kirim Pesan
               </span>
-
             </button>
           </form>
 
           <!-- Success -->
-          <div class="contact-success hidden"
-               id="contactSuccess">
-
+          <div class="contact-success hidden" id="contactSuccess">
             <h4 class="font-display text-2xl font-semibold text-navy mt-5 mb-2"
                 data-i18n="form_success_title">
               Pesan Terkirim!
             </h4>
-
             <p class="text-slate-muted text-sm text-center max-w-xs"
                data-i18n="form_success_msg">
               Terima kasih telah menghubungi kami.
             </p>
-
             <button id="resetFormBtn"
                     class="btn-outline-gold mt-6"
                     data-i18n="form_reset">
               Kirim Pesan Lain
             </button>
-
           </div>
         </div>
       </div>
@@ -522,46 +457,27 @@
 ===================================================================== -->
 <section class="bg-navy relative overflow-hidden py-16"
          aria-labelledby="wa-cta-heading">
-
   <div class="section-container relative z-10">
-
     <div class="flex flex-col md:flex-row items-center justify-between gap-8">
-
       <div class="reveal">
-
-        <p class="section-label text-gold/80 mb-2"
-           data-i18n="wa_cta_label">
+        <p class="section-label text-gold/80 mb-2" data-i18n="wa_cta_label">
           Chat Langsung
         </p>
-
         <h2 id="wa-cta-heading"
             class="font-display text-display-md text-white"
             data-i18n="wa_cta_title">
           Butuh Respons Cepat?
         </h2>
-
-        <p class="text-white/50 text-sm mt-2 max-w-md"
-           data-i18n="wa_cta_sub">
+        <p class="text-white/50 text-sm mt-2 max-w-md" data-i18n="wa_cta_sub">
           Langsung hubungi tim kami via WhatsApp.
         </p>
       </div>
-
       <div class="flex flex-col sm:flex-row gap-3 reveal reveal-delay-2 shrink-0">
-
-        <a href="https://wa.me/6285388881590"
-           class="btn-whatsapp">
-
-          <span data-i18n="contact_wa_btn">
-            WhatsApp Sekarang
-          </span>
+        <a href="https://wa.me/6285388881590" class="btn-whatsapp">
+          <span data-i18n="contact_wa_btn">WhatsApp Sekarang</span>
         </a>
-
-        <a href="tel:+6285388881590"
-           class="btn-outline-white">
-
-          <span data-i18n="wa_cta_phone">
-            Telepon Kami
-          </span>
+        <a href="tel:+6285388881590" class="btn-outline-white">
+          <span data-i18n="wa_cta_phone">Telepon Kami</span>
         </a>
       </div>
     </div>
@@ -570,13 +486,19 @@
 
 <!-- =====================================================================
      MAP SECTION
+     FIX: Tambahkan data-i18n pada semua elemen teks di section ini
 ===================================================================== -->
 <section class="section-padding bg-white" aria-labelledby="map-heading">
   <div class="section-container">
     <div class="text-center mb-10 reveal">
-      <span class="section-label">Lokasi Kami</span>
-      <h2 id="map-heading" class="section-title">Temukan Kantor Kami</h2>
-      <p class="section-subtitle mx-auto mt-3">Komplek Ruko Indah Gemilang Blok B 10 &amp; 11, Batam Center, Kepulauan Riau.</p>
+      <!-- FIX: Tambah data-i18n="map_label" -->
+      <span class="section-label" data-i18n="map_label">Lokasi Kami</span>
+      <!-- FIX: Tambah data-i18n="map_title" -->
+      <h2 id="map-heading" class="section-title" data-i18n="map_title">Temukan Kantor Kami</h2>
+      <!-- FIX: Tambah data-i18n="map_subtitle" -->
+      <p class="section-subtitle mx-auto mt-3" data-i18n="map_subtitle">
+        Komplek Ruko Indah Gemilang Blok B 10 &amp; 11, Batam Center, Kepulauan Riau.
+      </p>
       <span class="gold-line mx-auto block mt-5"></span>
     </div>
 
@@ -605,25 +527,63 @@
   </div>
 </section>
 
-
 <!-- =====================================================================
      FOOTER
 ===================================================================== -->
-<footer class="bg-navy-dark" role="contentinfo">
+<footer class="bg-navy-dark" role="contentinfo" aria-label="Footer">
   <div class="section-container py-14">
     <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
+
+      <!-- Kolom 1 & 2: Brand + Alamat Lengkap -->
       <div class="lg:col-span-2">
-        <a href="index.html" class="flex items-center gap-2 mb-4">
+        <a href="index.html" class="flex items-center gap-2 mb-4" aria-label="Media Asia Property">
           <span class="flex flex-col leading-none">
-            <span class="font-display text-lg font-bold text-white tracking-tight">Media Asia</span>
-            <span class="font-display text-xs font-semibold tracking-[0.18em] text-gold uppercase">Property</span>
+            <span class="font-display text-lg font-bold text-white tracking-tight" data-i18n="nav_logo_title">Media Asia</span>
+            <!-- FIX: Tambah data-i18n="footer_brand_sub" -->
+            <span class="font-display text-xs font-semibold tracking-[0.18em] text-gold uppercase" data-i18n="footer_brand_sub">Property</span>
           </span>
         </a>
-        <p class="text-white/40 text-sm leading-relaxed max-w-xs mb-5" data-i18n="footer_tagline">Solusi Properti Terpadu di Batam</p>
-        <p class="text-white/20 text-xs mb-6" data-i18n="footer_batam">Batam, Kepulauan Riau — Kawasan FTZ Indonesia</p>
+        <p class="text-white/40 text-sm leading-relaxed max-w-xs mb-5" data-i18n="footer_tagline">
+          Solusi Properti Terpadu di Batam
+        </p>
+
+        <!-- Alamat Lengkap -->
+        <address class="not-italic space-y-3">
+          <div class="flex items-start gap-3">
+            <svg class="w-4 h-4 text-gold mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+            </svg>
+            <p class="text-white/40 text-sm leading-relaxed" data-i18n="footer_address">
+              Komplek Ruko Indah Gemilang Blok B No. 10 &amp; 11,<br>
+              Batam Center, Batam,<br>
+              Kepulauan Riau 29461, Indonesia
+            </p>
+          </div>
+          <div class="flex items-center gap-3">
+            <svg class="w-4 h-4 text-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+            <div class="text-white/40 text-sm space-x-2">
+              <a href="tel:+628538888159" class="hover:text-gold transition-colors">+62 853-8888-159</a>
+              <span class="text-white/20">·</span>
+              <a href="tel:+628117740060" class="hover:text-gold transition-colors">+62 811-774-0060</a>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <svg class="w-4 h-4 text-gold shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+            </svg>
+            <a href="mailto:mediaasiaproperty@gmail.com" class="text-white/40 text-sm hover:text-gold transition-colors">
+              mediaasiaproperty@gmail.com
+            </a>
+          </div>
+        </address>
       </div>
-      <nav aria-labelledby="footer-svc">
-        <h3 id="footer-svc" class="text-white text-sm font-semibold mb-4 font-body" data-i18n="footer_services">Layanan</h3>
+
+      <!-- Kolom 3: Layanan -->
+      <nav aria-labelledby="footer-services-heading">
+        <h3 id="footer-services-heading" class="text-white text-sm font-semibold mb-4 font-body" data-i18n="footer_services">Layanan</h3>
         <ul class="space-y-2.5">
           <li><a href="layanan.html#legal"      class="text-white/40 text-sm hover:text-gold transition-colors" data-i18n="footer_legal_docs">Dokumen Legal</a></li>
           <li><a href="layanan.html#properti"   class="text-white/40 text-sm hover:text-gold transition-colors" data-i18n="footer_agent">Agent Properti</a></li>
@@ -631,17 +591,50 @@
           <li><a href="layanan.html#mep"        class="text-white/40 text-sm hover:text-gold transition-colors" data-i18n="footer_mep">Mekanikal &amp; Elektrikal</a></li>
         </ul>
       </nav>
-      <nav aria-labelledby="footer-company">
-        <h3 id="footer-company" class="text-white text-sm font-semibold mb-4 font-body" data-i18n="footer_company">Perusahaan</h3>
-        <ul class="space-y-2.5">
-          <li><a href="about.html"       class="text-white/40 text-sm hover:text-gold transition-colors" data-i18n="footer_about">Tentang Kami</a></li>
-          <li><a href="about.html#klien" class="text-white/40 text-sm hover:text-gold transition-colors" data-i18n="footer_clients">Klien</a></li>
-          <li><a href="contact.html"     class="text-white/40 text-sm hover:text-gold transition-colors" data-i18n="footer_contact">Kontak</a></li>
-        </ul>
-      </nav>
+
+      <!-- Kolom 4: Sosial Media -->
+      <div>
+        <!-- FIX: Tambah data-i18n="footer_follow" -->
+        <h3 class="text-white text-sm font-semibold mb-4 font-body" data-i18n="footer_follow">Ikuti Kami</h3>
+        <div class="flex flex-wrap gap-3">
+          <!-- Instagram -->
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Instagram Media Asia Property"
+             class="group w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-gradient-to-br hover:from-purple-500 hover:via-pink-500 hover:to-orange-400 hover:border-transparent transition-all duration-300">
+            <svg class="w-4 h-4 text-white/40 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
+            </svg>
+          </a>
+          <!-- Facebook -->
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="Facebook Media Asia Property"
+             class="group w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#1877F2] hover:border-transparent transition-all duration-300">
+            <svg class="w-4 h-4 text-white/40 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
+            </svg>
+          </a>
+          <!-- YouTube -->
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="YouTube Media Asia Property"
+             class="group w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#FF0000] hover:border-transparent transition-all duration-300">
+            <svg class="w-4 h-4 text-white/40 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M23.498 6.186a3.016 3.016 0 00-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 00.502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 002.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 002.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/>
+            </svg>
+          </a>
+          <!-- TikTok -->
+          <a href="#" target="_blank" rel="noopener noreferrer" aria-label="TikTok Media Asia Property"
+             class="group w-9 h-9 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center hover:bg-[#010101] hover:border-white/20 transition-all duration-300">
+            <svg class="w-4 h-4 text-white/40 group-hover:text-white transition-colors" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/>
+            </svg>
+          </a>
+        </div>
+      </div>
     </div>
+
+    <!-- Bottom Bar -->
     <div class="border-t border-white/8 mt-12 pt-7 flex flex-col sm:flex-row items-center justify-between gap-4">
-      <p class="text-white/20 text-xs">© <span id="footer-year">2025</span> PT Media Asia Batam. <span data-i18n="footer_copy">Semua hak dilindungi.</span></p>
+      <p class="text-white/20 text-xs">
+        © <span id="footer-year">2025</span> PT Media Asia Batam.
+        <span data-i18n="footer_copy">Semua hak dilindungi.</span>
+      </p>
       <div class="flex gap-6">
         <a href="#" class="text-white/20 text-xs hover:text-gold/60 transition-colors" data-i18n="footer_privacy">Kebijakan Privasi</a>
         <a href="#" class="text-white/20 text-xs hover:text-gold/60 transition-colors" data-i18n="footer_terms">Syarat &amp; Ketentuan</a>

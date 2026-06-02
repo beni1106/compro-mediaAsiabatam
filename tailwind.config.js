@@ -1,16 +1,17 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-content: [
-  "./*.html",
-  "./assets/js/**/*.js",
-],
+  content: [
+    "./*.html",
+    "./assets/js/**/*.js",
+  ],
   theme: {
     extend: {
-      fontFamily: {
-      display: ['"Plus Jakarta Sans"', 'sans-serif'],
-        body:    ['"Poppins"', 'sans-serif'],
-        mono:    ['"JetBrains Mono"', 'monospace'],
-      },
+        fontFamily: {
+          display: ['"Poppins"', 'sans-serif'],
+          body:    ['"Plus Jakarta Sans"', 'sans-serif'],
+          nav:     ['"Poppins"', 'sans-serif'],
+          mono:    ['"JetBrains Mono"', 'monospace'],
+        },
       colors: {
         primary: {
           50:  '#f0f7ff',
@@ -44,47 +45,28 @@ content: [
           300: '#DDD8CB',
         },
         slate: {
-          body: '#3D4655',
-          muted:'#7A8394',
+          body:  '#3D4655',
+          muted: '#7A8394',
         },
       },
-fontSize: {
-  'display-xl': [
-    'clamp(2.3rem, 5vw, 4.2rem)',
-    {
-      lineHeight: '1.08',
-      letterSpacing: '-0.04em',
-      fontWeight: '700',
-    },
-  ],
-
-  'display-lg': [
-    'clamp(1.9rem, 4vw, 3.2rem)',
-    {
-      lineHeight: '1.1',
-      letterSpacing: '-0.03em',
-      fontWeight: '700',
-    },
-  ],
-
-  'display-md': [
-    'clamp(1.45rem, 2.5vw, 2.2rem)',
-    {
-      lineHeight: '1.2',
-      letterSpacing: '-0.025em',
-      fontWeight: '600',
-    },
-  ],
-
-  'display-sm': [
-    'clamp(1.05rem, 1.8vw, 1.35rem)',
-    {
-      lineHeight: '1.35',
-      letterSpacing: '-0.015em',
-      fontWeight: '600',
-    },
-  ],
-},
+      fontSize: {
+        'display-xl': [
+          'clamp(2.3rem, 5vw, 4.2rem)',
+          { lineHeight: '1.08', letterSpacing: '-0.04em', fontWeight: '700' },
+        ],
+        'display-lg': [
+          'clamp(1.9rem, 4vw, 3.2rem)',
+          { lineHeight: '1.1',  letterSpacing: '-0.03em', fontWeight: '700' },
+        ],
+        'display-md': [
+          'clamp(1.45rem, 2.5vw, 2.2rem)',
+          { lineHeight: '1.2',  letterSpacing: '-0.025em', fontWeight: '600' },
+        ],
+        'display-sm': [
+          'clamp(1.05rem, 1.8vw, 1.35rem)',
+          { lineHeight: '1.35', letterSpacing: '-0.015em', fontWeight: '600' },
+        ],
+      },
       spacing: {
         '18': '4.5rem',
         '22': '5.5rem',
@@ -94,15 +76,15 @@ fontSize: {
         '38': '9.5rem',
       },
       borderRadius: {
-        'xs': '0.125rem',
+        'xs':  '0.125rem',
         '4xl': '2rem',
       },
       boxShadow: {
-        'glass':   '0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6)',
-        'card':    '0 2px 12px rgba(13,31,60,0.06), 0 1px 3px rgba(13,31,60,0.04)',
+        'glass':      '0 8px 32px rgba(0,0,0,0.08), inset 0 1px 0 rgba(255,255,255,0.6)',
+        'card':       '0 2px 12px rgba(13,31,60,0.06), 0 1px 3px rgba(13,31,60,0.04)',
         'card-hover': '0 16px 40px rgba(13,31,60,0.12), 0 4px 12px rgba(13,31,60,0.06)',
-        'gold':    '0 4px 20px rgba(200,151,58,0.25)',
-        'navy':    '0 8px 30px rgba(13,31,60,0.25)',
+        'gold':       '0 4px 20px rgba(200,151,58,0.25)',
+        'navy':       '0 8px 30px rgba(13,31,60,0.25)',
       },
       backgroundImage: {
         'hero-gradient':   'linear-gradient(135deg, #070F1E 0%, #0D1F3C 50%, #122952 100%)',
@@ -158,16 +140,15 @@ fontSize: {
         },
       },
       animation: {
-        'fade-up':      'fadeUp 0.7s cubic-bezier(0.25,0.46,0.45,0.94) forwards',
-        'fade-in':      'fadeIn 0.6s ease forwards',
-        'slide-left':   'slideInLeft 0.7s cubic-bezier(0.25,0.46,0.45,0.94) forwards',
-        'slide-right':  'slideInRight 0.7s cubic-bezier(0.25,0.46,0.45,0.94) forwards',
-        'scale-in':     'scaleIn 0.5s cubic-bezier(0.25,0.46,0.45,0.94) forwards',
-        'shimmer':      'shimmer 2.5s linear infinite',
-        'pulse-slow':   'pulse_slow 3s ease-in-out infinite',
-        'float':        'float 3s ease-in-out infinite',
+        'fade-up':    'fadeUp 0.7s cubic-bezier(0.25,0.46,0.45,0.94) forwards',
+        'fade-in':    'fadeIn 0.6s ease forwards',
+        'slide-left': 'slideInLeft 0.7s cubic-bezier(0.25,0.46,0.45,0.94) forwards',
+        'slide-right':'slideInRight 0.7s cubic-bezier(0.25,0.46,0.45,0.94) forwards',
+        'scale-in':   'scaleIn 0.5s cubic-bezier(0.25,0.46,0.45,0.94) forwards',
+        'shimmer':    'shimmer 2.5s linear infinite',
+        'pulse-slow': 'pulse_slow 3s ease-in-out infinite',
+        'float':      'float 3s ease-in-out infinite',
       },
-
       zIndex: {
         '60': '60',
         '70': '70',

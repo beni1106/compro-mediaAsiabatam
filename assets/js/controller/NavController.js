@@ -107,8 +107,9 @@ export class NavController {
     const pageMap = {
       '':             'index.html',
       'index.html':   'index.html',
-      'about.html':   'about.html',
-      'layanan.html': 'layanan.html',
+      'dokumenlegal.html':   'dokumenlegal.html',
+      'agent-property.html': 'agent-property.html',
+      'arsitektur-mekanikal.html': 'arsitektur-mekanikal.html',
       'contact.html': 'contact.html',
     };
     const activePage = pageMap[filename] ?? filename;
