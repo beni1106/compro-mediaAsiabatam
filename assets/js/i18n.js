@@ -1,19 +1,3 @@
-/**
- * i18n.js — Translation data (Model layer)
- * Pure data object — NO DOM manipulation here.
- * Usage: i18n[lang].key
- *
- * CHANGELOG (patch):
- * - Tambah contact_hero_label, contact_hero_title, contact_hero_sub (dipakai di hero section HTML)
- * - Pertahankan contact_label, contact_title, contact_sub (dipakai di info section HTML)
- * - Tambah footer_address (dipakai di footer HTML)
- * - Tambah footer_follow (dipakai di footer HTML)
- * - Tambah footer_brand_sub (dipakai di footer HTML)
- * - contact_status_closed sudah ada — dipakai via JS ContactController (data-i18n-closed attr)
- * - contact_page_title sudah ada — dipakai di <title data-i18n="contact_page_title">
- * - map_label, map_title, map_subtitle sudah ada — kini dipakai di HTML
- */
-
 const i18n = {
   id: {
     /* ── Meta ─────────────────────────────────────────────── */
@@ -266,6 +250,8 @@ const i18n = {
     faq5_a:     'Biaya bervariasi tergantung jenis dokumen, kompleksitas kasus, dan kondisi lahan/bangunan. Kami memberikan konsultasi awal secara gratis dan menyediakan estimasi biaya transparan sebelum pekerjaan dimulai.',
 
     /* ── CTA ──────────────────────────────────────────────── */
+    hero_cta_main:  'Konsultasi Gratis',
+    hero_cta_sec:   'Lihat Layanan',
     cta_label:        'Mulai Sekarang',
     cta_title:        'Urus Dokumen Legal Properti Anda Bersama Kami',
     cta_sub:          'Tim kami siap memberikan konsultasi gratis dan solusi terbaik untuk seluruh kebutuhan dokumen legal properti Anda di Batam.',
@@ -836,6 +822,8 @@ const i18n = {
     cta_btn_consult:  'Free Consultation',
     cta_btn_wa:       'WhatsApp Us',
     cta_contact_info: 'Komplek Ruko Indah Gemilang Block B 10 & 11 Batam Center · +62 853 8888 8159',
+    hero_cta_main:  'Free Consultation',
+    hero_cta_sec:   'Our Services',
 
     /* ════════════════════════════════════════════════════════
        AGENT PROPERTY PAGE
