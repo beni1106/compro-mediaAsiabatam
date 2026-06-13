@@ -18,8 +18,8 @@ const i18n = {
     /* ── Hero (index) ─────────────────────────────────────── */
     hero_headline:  'Properti, Elektrikal & Konstruksi — Satu Atap.',
     hero_sub:       'PT Media Asia Batam hadir sejak 2015 sebagai mitra terpercaya untuk jual beli sewa properti, pengurusan dokumen legal, dan layanan arsitektur & konstruksi di kawasan Batam FTZ.',
-    hero_cta_main:  'Tentang Kami',
-    hero_cta_sec:   'Lihat Layanan',
+    hero_cta_main:  'Konsultasi Gratis',
+    hero_cta_sec:   'Tentang Kami',
 
     /* ── Services (index) ─────────────────────────────────── */
     svc_label:    'Layanan Kami',
@@ -57,6 +57,83 @@ const i18n = {
     stat_companies:    'Perusahaan & Instansi',
     stat_years:        'Tahun Pengalaman',
     stat_sectors:      'Bidang Keahlian',
+
+    /* ════════════════════════════════════════════════════════
+       ABOUT PAGE
+       ════════════════════════════════════════════════════════ */
+    about_page_title:  'Tentang Kami — Media Asia Property Batam',
+    about_label:       'Tentang Kami',
+    about_title:       'Media Asia Batam',
+    about_hero_sub:    'PT Media Asia Batam, berkedudukan di Batam dengan akta pendiriannya sebagaimana dimuat dalam Akta Pendirian Perseroan Terbatas No. 23 tanggal 08 Desember 2015.',
+
+    about_body1: 'PT Media Asia Batam, berkedudukan di Batam dengan akta pendiriannya sebagaimana dimuat dalam Akta Pendirian Perseroan Terbatas No. 23 tanggal 08 Desember 2015, dibuat di hadapan Notaris di Kota Batam. Akta Pendirian Perseroan telah memperoleh pengesahan Menteri Hukum dan Hak Asasi Manusia Republik Indonesia Dengan Surat Keputusannya No. AHU-0038769.AH.01.02. Tahun 2022, Nomor Induk Berusaha : 2706220027444, 27 Juni 2022.',
+    about_body2: 'Posisi Perusahaan merupakan induk perusahaan, atas seluruh entitas anak perusahaan yang dimiliki melalui investasi penyertaan kepemilikan saham.',
+    about_body3: 'Kegiatan usaha yang saat ini dilaksanakan oleh Perusahaan adalah di bidang pembangunan, pengelolaan, dan perdagangan real estate/property, Jasa dokumen yang berkaitan dengan property.',
+
+    about_team:  'Tim Kami',
+    about_team1: 'Komisaris',
+    about_team2: 'Arsitek',
+    about_team3: 'Direktur',
+
+    about_back:      'Kembali',
+    about_back_home: 'Kembali ke Beranda',
+
+    mitra_label:        'Kemitraan',
+    mitra_title:        'Mitra Kami',
+    mitra_sub:          'Bekerja sama dengan mitra terpercaya untuk menghadirkan layanan terbaik bagi klien kami.',
+    mitra_badge:        'Mitra Resmi',
+    mitra_1_name:       'PT. Trimatra Daya Sarana',
+    mitra_1_tag:        'Specialist Contractor',
+    mitra_expertise_lbl:'Bidang Keahlian',
+    mitra_1_desc:       'PT Trimatradaya Sarana adalah kontraktor spesialis di bidang Mekanikal, Elektrikal, dan IT — berfokus pada proyek Design and Build serta manajemen proyek untuk instalasi baru maupun renovasi di berbagai proyek multi-fasilitas.',
+    mitra_1_stat1_lbl:  'Spesialisasi',
+    mitra_1_stat2_lbl:  'Design & Build',
+    mitra_1_stat3_lbl:  'Kemitraan',
+
+    phil_label:   'Our Philosophy',
+    phil_title:   'Filosofi, Visi, Misi & Nilai',
+    mission_label:'Mission',
+    mission_title:'Misi Kami',
+    mission_desc: 'Menjadi perusahaan pengembang (developer), agen property profesional terbaik, jujur dan terpercaya yang mampu bersaing di tingkat nasional.',
+    vision_label: 'Vision',
+    vision_title: 'Visi Kami',
+    vision_1_desc:'Membangun sumber daya manusia yang berkompeten dan berintegritas.',
+    vision_2_desc:'Melaksanakan pembangunan dan pengelolaan properti dengan tata kelola yang baik.',
+    vision_3_desc:'Memberikan nilai lebih kepada stakeholder dan investor.',
+    vision_4_desc:'Mendukung program pemerintah dalam penyediaan perumahan masyarakat.',
+
+    values_label: 'Nilai',
+    values_title: 'Nilai-Nilai',
+    val_1_title:  'Integritas',
+    val_1_desc:   'Integrity',
+    val_2_title:  'Komitmen',
+    val_2_desc:   'Commitment',
+    val_3_title:  'Fokus pada Pelanggan',
+    val_3_desc:   'Customer Focused',
+    val_4_title:  'Rasional',
+    val_4_desc:   'Rational',
+    val_5_title:  'Bekerjasama',
+    val_5_desc:   'Team Work',
+    val_6_title:  'Perbaikan Terus Menerus',
+    val_6_desc:   'Continuous Improvement',
+
+    clients_label:      'Klien Terkemuka',
+    clients_title:      'Dipercaya oleh Korporat & Developer Besar',
+    clients_sub:        '500+ pelanggan perorangan dan 27+ perusahaan telah mempercayakan kebutuhan properti mereka kepada kami.',
+    clients_all_title:  'Semua Klien Kami',
+    clients_show_more:  'Lihat Semua Klien',
+    clients_show_less:  'Tampilkan Lebih Sedikit',
+
+    /* Nav about.html */
+    nav_about:   'Tentang Kami',
+    nav_services:'Layanan',
+    nav_cta:     'Konsultasi Gratis',
+
+    /* Footer about.html */
+    footer_about:   'Tentang Kami',
+    footer_clients: 'Klien',
+    footer_batam:   'Batam, Kepulauan Riau — Kawasan FTZ Indonesia',
+    footer_company: 'Perusahaan',
 
     /* ════════════════════════════════════════════════════════
        DOKUMEN LEGAL PAGE
@@ -250,8 +327,6 @@ const i18n = {
     faq5_a:     'Biaya bervariasi tergantung jenis dokumen, kompleksitas kasus, dan kondisi lahan/bangunan. Kami memberikan konsultasi awal secara gratis dan menyediakan estimasi biaya transparan sebelum pekerjaan dimulai.',
 
     /* ── CTA ──────────────────────────────────────────────── */
-    hero_cta_main:  'Konsultasi Gratis',
-    hero_cta_sec:   'Lihat Layanan',
     cta_label:        'Mulai Sekarang',
     cta_title:        'Urus Dokumen Legal Properti Anda Bersama Kami',
     cta_sub:          'Tim kami siap memberikan konsultasi gratis dan solusi terbaik untuk seluruh kebutuhan dokumen legal properti Anda di Batam.',
@@ -584,8 +659,8 @@ const i18n = {
     /* ── Hero (index) ─────────────────────────────────────── */
     hero_headline:  'Property, Electrical & Construction — Under One Roof.',
     hero_sub:       'PT Media Asia Batam has been serving since 2015 as a trusted partner for property transactions, legal document processing, and architecture & construction in Batam FTZ.',
-    hero_cta_main:  'About Us',
-    hero_cta_sec:   'Our Services',
+    hero_cta_main:  'Free Consultation',
+    hero_cta_sec:   'About Us',
 
     /* ── Services (index) ─────────────────────────────────── */
     svc_label:    'Our Services',
@@ -623,6 +698,81 @@ const i18n = {
     stat_companies:    'Companies & Institutions',
     stat_years:        'Years of Experience',
     stat_sectors:      'Areas of Expertise',
+
+    /* ════════════════════════════════════════════════════════
+       ABOUT PAGE
+       ════════════════════════════════════════════════════════ */
+    about_page_title:  'About Us — Media Asia Property Batam',
+    about_label:       'About Us',
+    about_title:       'Media Asia Batam',
+    about_hero_sub:    'PT Media Asia Batam, established in Batam under Deed of Establishment No. 23 dated December 8, 2015.',
+
+    about_body1: 'PT Media Asia Batam, established in Batam under Deed of Establishment No. 23 dated December 8, 2015, executed before a Notary in Batam City. The Deed of Establishment has been approved by the Minister of Law and Human Rights of the Republic of Indonesia under Decree No. AHU-0038769.AH.01.02. Year 2022, Business Registration Number: 2706220027444, June 27, 2022.',
+    about_body2: 'The Company serves as the parent company for all subsidiary entities owned through equity investment shareholding.',
+    about_body3: 'The business activities currently carried out by the Company include the development, management, and trading of real estate/property, as well as property-related document services.',
+
+    about_team:  'Our Team',
+    about_team1: 'Commissioner',
+    about_team2: 'Architect',
+    about_team3: 'Director',
+
+    about_back:      'Back',
+    about_back_home: 'Back to Home',
+
+    mitra_label:        'Partnership',
+    mitra_title:        'Our Partners',
+    mitra_sub:          'Working with trusted partners to deliver the best service for our clients.',
+    mitra_badge:        'Official Partner',
+    mitra_1_name:       'PT. Trimatra Daya Sarana',
+    mitra_1_tag:        'Specialist Contractor',
+    mitra_expertise_lbl:'Areas of Expertise',
+    mitra_1_desc:       'PT Trimatradaya Sarana is a specialist contractor in Mechanical, Electrical, and IT — focused on Design and Build projects and project management for new installations and renovations across multi-facility projects.',
+    mitra_1_stat1_lbl:  'Specialization',
+    mitra_1_stat2_lbl:  'Design & Build',
+    mitra_1_stat3_lbl:  'Partnership',
+
+    phil_label:   'Our Philosophy',
+    phil_title:   'Philosophy, Vision, Mission & Values',
+    mission_label:'Mission',
+    mission_title:'Our Mission',
+    mission_desc: 'To become the best, honest, and trusted professional property developer and agent capable of competing at the national level.',
+    vision_label: 'Vision',
+    vision_title: 'Our Vision',
+    vision_1_desc:'Building competent and integrity-driven human resources.',
+    vision_2_desc:'Carrying out property development and management with good governance.',
+    vision_3_desc:'Delivering added value to stakeholders and investors.',
+    vision_4_desc:'Supporting government programs in providing community housing.',
+
+    values_label: 'Values',
+    values_title: 'Our Values',
+    val_1_title:  'Integrity',
+    val_1_desc:   'Integrity',
+    val_2_title:  'Commitment',
+    val_2_desc:   'Commitment',
+    val_3_title:  'Customer Focused',
+    val_3_desc:   'Customer Focused',
+    val_4_title:  'Rational',
+    val_4_desc:   'Rational',
+    val_5_title:  'Team Work',
+    val_5_desc:   'Team Work',
+    val_6_title:  'Continuous Improvement',
+    val_6_desc:   'Continuous Improvement',
+
+    clients_label:      'Notable Clients',
+    clients_title:      'Trusted by Corporates & Major Developers',
+    clients_sub:        '500+ individual customers and 27+ companies have entrusted their property needs to us.',
+    clients_all_title:  'All Our Clients',
+    clients_show_more:  'View All Clients',
+    clients_show_less:  'Show Less',
+
+    nav_about:   'About Us',
+    nav_services:'Services',
+    nav_cta:     'Free Consultation',
+
+    footer_about:   'About Us',
+    footer_clients: 'Clients',
+    footer_batam:   'Batam, Riau Islands — Indonesia FTZ Area',
+    footer_company: 'Company',
 
     /* ════════════════════════════════════════════════════════
        DOKUMEN LEGAL PAGE
@@ -822,8 +972,6 @@ const i18n = {
     cta_btn_consult:  'Free Consultation',
     cta_btn_wa:       'WhatsApp Us',
     cta_contact_info: 'Komplek Ruko Indah Gemilang Block B 10 & 11 Batam Center · +62 853 8888 8159',
-    hero_cta_main:  'Free Consultation',
-    hero_cta_sec:   'Our Services',
 
     /* ════════════════════════════════════════════════════════
        AGENT PROPERTY PAGE

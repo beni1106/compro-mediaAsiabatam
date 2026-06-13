@@ -25,8 +25,12 @@ document.addEventListener('DOMContentLoaded', async () => {
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
   // 6. Controller spesifik halaman
-  //    Menggunakan dynamic import — halaman lain tidak menanggung cost-nya.
   const page = window.location.pathname.split('/').pop() || 'index.html';
+
+  if (page === 'about.html') {
+    const { initAbout } = await import('./controller/AboutController.js');
+    initAbout();
+  }
 
   if (page === 'contact.html') {
     const { initContact } = await import('./controller/ContactController.js');
@@ -45,8 +49,35 @@ document.addEventListener('DOMContentLoaded', async () => {
 
   if (page === 'dokumenlegal.html') {
     const { LegalController } = await import('./controller/LegalController.js');
-    // LegalController memanggil init sendiri di constructor
     new LegalController(null);
+  }
+
+  // ← Halaman detail properti
+  if (page === 'property-detail.html') {
+    const { initPropertyDetail } = await import('./controller/PropertyDetailController.js');
+    initPropertyDetail();
+
+    // Sync WA FAB dengan properti yang sedang dilihat
+    const id = new URLSearchParams(window.location.search).get('id');
+    if (id) {
+      const fab = document.getElementById('pd-wa-fab');
+      if (fab) {
+        const msg = encodeURIComponent(`Halo Media Asia Property, saya ingin info properti dengan ID #${id}.`);
+        fab.href = `https://wa.me/628538888159?text=${msg}`;
+      }
+    }
+
+    // Sync WA button mobile bar
+    const waMobile = document.getElementById('pd-btn-wa-mobile');
+    if (waMobile) {
+      const waDesktop = document.getElementById('pd-btn-wa');
+      if (waDesktop) {
+        // Tunggu controller selesai render (microtask)
+        setTimeout(() => {
+          waMobile.href = waDesktop.href;
+        }, 0);
+      }
+    }
   }
 
 });

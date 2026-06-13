@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="id" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title data-i18n="about_page_title">Tentang Kami — Media Asia Property Batam</title>
+  <meta name="description" content="Kenali PT Media Asia Batam lebih dalam: sejarah, visi misi, tim, klien terkemuka, dan mitra bisnis kami sejak 2015." />
+  <meta name="robots" content="index, follow" />
+  <link rel="canonical" href="https://www.mediaasiaproperty.com/about.html" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/output.css" />
+  <link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg" />
+  <link rel="icon" type="image/png"     href="assets/img/favicon.png" />
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0D1F3C" />
+</head>
+
+<body class="font-body bg-warm-50 text-slate-body antialiased">
+
+<!-- =====================================================================
+     BACK BAR — menggantikan navbar, state hero/scrolled identik navbar
+===================================================================== -->
+<div class="about-back-bar state-hero" role="banner" aria-label="Navigasi halaman">
+  <div class="about-bar-inner section-container">
+
+    <!-- Tombol back — style identik nav-link -->
+    <a href="index.html" class="about-back-btn" aria-label="Kembali ke Beranda">
+      <svg class="about-back-btn__icon" viewBox="0 0 24 24" fill="none"
+           stroke="currentColor" stroke-width="2" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M12 5l-7 7 7 7"/>
+      </svg>
+      <span data-i18n="about_back">Kembali</span>
+    </a>
+
+    <!-- Lang toggle — identik dengan navbar (dengan bendera) -->
+    <div class="lang-toggle" role="group" aria-label="Pilih bahasa">
+      <button class="lang-btn lang-btn--active"
+              data-lang="id" aria-pressed="true" aria-label="Bahasa Indonesia">
+        <img src="assets/img/indo.png" alt="" aria-hidden="true"> ID
+      </button>
+      <button class="lang-btn lang-btn--inactive"
+              data-lang="en" aria-pressed="false" aria-label="English">
+        <img src="assets/img/united-kingdom.png" alt="" aria-hidden="true"> EN
+      </button>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- =====================================================================
+     PAGE HERO
+===================================================================== -->
+<section class="relative overflow-hidden pt-32 pb-20 min-h-[70vh]" aria-labelledby="page-heading">
+
+  <!-- Background kiri: solid hero-gradient -->
+  <div class="absolute inset-0 bg-hero-gradient" aria-hidden="true"></div>
+
+  <!-- Background kanan: foto dengan mask fade di kiri -->
+  <div class="absolute top-0 right-0 w-[60%] h-full hidden lg:block" aria-hidden="true">
+    <img
+      src="assets/img/singapore-skyline.jpg"
+      alt=""
+      class="w-full h-full object-cover object-center"
+      style="
+        filter: brightness(0.35) saturate(0.65);
+        mask-image: linear-gradient(to right, transparent 0%, black 30%);
+        -webkit-mask-image: linear-gradient(to right, transparent 0%, black 30%);
+      "
+    />
+  </div>
+
+  <!-- Orb dekoratif -->
+  <div class="absolute top-0 left-0 w-96 h-96 bg-gold/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+
+  <!-- Konten -->
+  <div class="section-container relative z-10 pt-10">
+    <div class="max-w-3xl">
+      <div class="flex items-center gap-3 mb-4 reveal">
+        <span class="w-8 h-px bg-gold"></span>
+        <span class="section-label text-gold/90" data-i18n="about_label">Tentang Kami</span>
+      </div>
+      <h1 id="page-heading"
+          class="font-display text-display-xl text-white leading-[1.06] mb-6 reveal"
+          data-i18n="about_title">
+        Media Asia Batam
+      </h1>
+      <p class="text-white/50 text-lg leading-relaxed max-w-2xl reveal"
+         data-i18n="about_hero_sub">
+        PT Media Asia Batam, berkedudukan di Batam dengan akta pendiriannya
+        sebagaimana dimuat dalam Akta Pendirian Perseroan Terbatas No. 23
+        tanggal 08 Desember 2015.
+      </p>
+      <div class="flex items-center gap-3 mt-10 reveal">
+        <span class="gold-line"></span>
+        <span class="section-label text-gold/50">Est. 2015</span>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- =====================================================================
+     ABOUT BODY
+===================================================================== -->
+<section id="about" class="section-padding bg-white" aria-labelledby="about-detail-heading">
+  <div class="section-container">
+    <div class="max-w-4xl mx-auto">
+      <div class="reveal space-y-8 mb-16">
+        <p class="text-slate-muted text-[1.1rem] leading-[2]" data-i18n="about_body1">
+          PT Media Asia Batam, berkedudukan di Batam dengan akta pendiriannya sebagaimana dimuat dalam Akta Pendirian Perseroan Terbatas No. 23 tanggal 08 Desember 2015, dibuat di hadapan Notaris di Kota Batam. Akta Pendirian Perseroan telah memperoleh pengesahan Menteri Hukum dan Hak Asasi Manusia Republik Indonesia Dengan Surat Keputusannya No. AHU-0038769.AH.01.02. Tahun 2022, Nomor Induk Berusaha : 2706220027444, 27 Juni 2022.
+        </p>
+        <p class="text-slate-muted text-[1.1rem] leading-[2]" data-i18n="about_body2">
+          Posisi Perusahaan merupakan induk perusahaan, atas seluruh entitas anak perusahaan yang dimiliki melalui investasi penyertaan kepemilikan saham.
+        </p>
+        <p class="text-slate-muted text-[1.1rem] leading-[2]" data-i18n="about_body3">
+          Kegiatan usaha yang saat ini dilaksanakan oleh Perusahaan adalah di bidang pembangunan, pengelolaan, dan perdagangan real estate/property, Jasa dokumen yang berkaitan dengan property.
+        </p>
+      </div>
+
+      <!-- Tim -->
+      <div class="reveal">
+        <h2 class="text-3xl font-display text-navy mb-2 text-center" data-i18n="about_team">Tim Kami</h2>
+        <span class="gold-line mx-auto block mb-10"></span>
+        <div class="grid sm:grid-cols-3 gap-4">
+          <div class="bg-white border border-warm-200 rounded-sm p-6 shadow-card text-center">
+            <p class="text-slate-muted text-xs uppercase tracking-wider mb-2" data-i18n="about_team1">Komisaris</p>
+            <p class="font-semibold text-navy">Nazriwan</p>
+          </div>
+          <div class="bg-white border border-warm-200 rounded-sm p-6 shadow-card text-center">
+            <p class="text-slate-muted text-xs uppercase tracking-wider mb-2" data-i18n="about_team2">Arsitek</p>
+            <p class="font-semibold text-navy">Andy Casby</p>
+          </div>
+          <div class="bg-white border border-warm-200 rounded-sm p-6 shadow-card text-center">
+            <p class="text-slate-muted text-xs uppercase tracking-wider mb-2" data-i18n="about_team3">Direktur</p>
+            <p class="font-semibold text-navy">Said Muhammad</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     MITRA
+===================================================================== -->
+<section id="mitra" class="section-padding bg-warm-100 bg-dot-pattern" aria-labelledby="mitra-heading">
+  <div class="section-container">
+
+    <div class="text-center mb-16 reveal">
+      <span class="section-label" data-i18n="mitra_label">Kemitraan</span>
+      <h2 id="mitra-heading" class="section-title" data-i18n="mitra_title">Mitra Kami</h2>
+      <p class="section-subtitle mx-auto mt-3" data-i18n="mitra_sub">
+        Bekerja sama dengan mitra terpercaya untuk menghadirkan layanan terbaik bagi klien kami.
+      </p>
+      <span class="gold-line mx-auto block mt-5"></span>
+    </div>
+
+    <div class="max-w-5xl mx-auto reveal">
+      <div class="bg-white border border-warm-200 rounded-sm shadow-card overflow-hidden">
+        <div class="grid lg:grid-cols-5">
+
+          <!-- Kiri -->
+          <div class="lg:col-span-2 bg-navy relative flex flex-col justify-between p-8 xl:p-10 min-h-[280px]">
+            <div class="absolute bottom-0 right-0 w-48 h-48 bg-gold/5 rounded-full blur-3xl pointer-events-none" aria-hidden="true"></div>
+            <div>
+              <p class="text-xs uppercase tracking-[0.2em] text-white/30 mb-6 font-body font-medium" data-i18n="mitra_badge">Mitra Resmi</p>
+              <div class="w-16 h-16 rounded-sm bg-white/8 border border-white/15 flex items-center justify-center mb-5">
+                <span class="font-display text-2xl font-bold text-gold">TM</span>
+              </div>
+              <h3 class="font-display text-2xl xl:text-3xl font-semibold text-white leading-tight" data-i18n="mitra_1_name">
+                PT. Trimatra<br/>Daya Sarana
+              </h3>
+            </div>
+            <div class="flex items-center gap-3 mt-8">
+              <span class="gold-line"></span>
+              <span class="text-[10px] tracking-[0.2em] text-gold/50 uppercase font-body" data-i18n="mitra_1_tag">Specialist Contractor</span>
+            </div>
+          </div>
+
+          <!-- Kanan -->
+          <div class="lg:col-span-3 flex flex-col justify-between p-8 xl:p-10">
+            <div>
+              <p class="text-xs uppercase tracking-[0.18em] text-slate-muted font-body font-medium mb-4" data-i18n="mitra_expertise_lbl">Bidang Keahlian</p>
+              <div class="flex flex-wrap gap-2 mb-7">
+                <span class="badge--gold">Electrical</span>
+                <span class="badge--gold">Mechanical</span>
+                <span class="badge--gold">IT</span>
+                <span class="badge--gold">ACMV</span>
+                <span class="badge--gold">Fire Protection</span>
+              </div>
+              <p class="text-slate-muted text-base leading-relaxed" data-i18n="mitra_1_desc">
+                PT Trimatradaya Sarana adalah kontraktor spesialis di bidang Mekanikal, Elektrikal, dan IT — berfokus pada proyek Design and Build serta manajemen proyek untuk instalasi baru maupun renovasi di berbagai proyek multi-fasilitas.
+              </p>
+            </div>
+            <div class="mt-8 pt-7 border-t border-warm-200 grid grid-cols-3 gap-4">
+              <div>
+                <p class="font-display text-2xl font-bold text-navy">MEP</p>
+                <p class="text-[11px] text-slate-muted uppercase tracking-wider mt-0.5" data-i18n="mitra_1_stat1_lbl">Spesialisasi</p>
+              </div>
+              <div>
+                <p class="font-display text-2xl font-bold text-navy">D&amp;B</p>
+                <p class="text-[11px] text-slate-muted uppercase tracking-wider mt-0.5" data-i18n="mitra_1_stat2_lbl">Design &amp; Build</p>
+              </div>
+              <div>
+                <p class="font-display text-2xl font-bold text-navy">B2B</p>
+                <p class="text-[11px] text-slate-muted uppercase tracking-wider mt-0.5" data-i18n="mitra_1_stat3_lbl">Kemitraan</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- =====================================================================
+     PHILOSOPHY — Visi, Misi & Nilai
+===================================================================== -->
+<section id="filosofi" class="section-padding bg-dot-pattern bg-warm-100" aria-labelledby="values-heading">
+  <div class="section-container">
+    <div class="text-center mb-16 reveal">
+      <span class="section-label" data-i18n="phil_label">Our Philosophy</span>
+      <h2 id="values-heading" class="section-title" data-i18n="phil_title">Filosofi, Visi, Misi &amp; Nilai</h2>
+      <span class="gold-line mx-auto block mt-4"></span>
+    </div>
+
+    <div class="grid lg:grid-cols-2 gap-10 xl:gap-16 mb-12">
+      <!-- Misi -->
+      <div class="bg-white rounded-sm p-8 shadow-card border border-warm-200 reveal">
+        <span class="text-gold uppercase tracking-[0.2em] text-xs font-medium" data-i18n="mission_label">Mission</span>
+        <h3 class="text-3xl font-display text-navy mt-3 mb-6" data-i18n="mission_title">Misi Kami</h3>
+        <p class="text-slate-body text-lg leading-[2]" data-i18n="mission_desc">
+          Menjadi perusahaan pengembang (developer), agen property profesional terbaik, jujur dan terpercaya yang mampu bersaing di tingkat nasional.
+        </p>
+      </div>
+
+      <!-- Visi -->
+      <div class="bg-white rounded-sm p-8 shadow-card border border-warm-200 reveal">
+        <span class="text-gold uppercase tracking-[0.2em] text-xs font-medium" data-i18n="vision_label">Vision</span>
+        <h3 class="text-3xl font-display text-navy mt-3 mb-6" data-i18n="vision_title">Visi Kami</h3>
+        <ul class="space-y-5">
+          <li class="flex gap-4">
+            <span class="text-gold font-semibold shrink-0">01</span>
+            <p class="text-slate-body leading-relaxed" data-i18n="vision_1_desc">Membangun sumber daya manusia yang berkompeten dan berintegritas.</p>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-gold font-semibold shrink-0">02</span>
+            <p class="text-slate-body leading-relaxed" data-i18n="vision_2_desc">Melaksanakan pembangunan dan pengelolaan properti dengan tata kelola yang baik.</p>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-gold font-semibold shrink-0">03</span>
+            <p class="text-slate-body leading-relaxed" data-i18n="vision_3_desc">Memberikan nilai lebih kepada stakeholder dan investor.</p>
+          </li>
+          <li class="flex gap-4">
+            <span class="text-gold font-semibold shrink-0">04</span>
+            <p class="text-slate-body leading-relaxed" data-i18n="vision_4_desc">Mendukung program pemerintah dalam penyediaan perumahan masyarakat.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Nilai -->
+    <div class="bg-white rounded-sm p-8 shadow-card border border-warm-200 reveal text-center">
+      <span class="text-gold uppercase tracking-[0.2em] text-xs font-medium block" data-i18n="values_label">Nilai</span>
+      <h3 class="text-3xl font-display text-navy mt-3 mb-8" data-i18n="values_title">Nilai-Nilai</h3>
+      <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
+        <div class="bg-warm-50 border border-warm-200 rounded-sm p-5 text-center">
+          <h4 class="font-semibold text-navy mb-1" data-i18n="val_1_title">Integritas</h4>
+          <p class="text-xs text-slate-muted" data-i18n="val_1_desc">Integrity</p>
+        </div>
+        <div class="bg-warm-50 border border-warm-200 rounded-sm p-5 text-center">
+          <h4 class="font-semibold text-navy mb-1" data-i18n="val_2_title">Komitmen</h4>
+          <p class="text-xs text-slate-muted" data-i18n="val_2_desc">Commitment</p>
+        </div>
+        <div class="bg-warm-50 border border-warm-200 rounded-sm p-5 text-center">
+          <h4 class="font-semibold text-navy mb-1" data-i18n="val_3_title">Fokus pada Pelanggan</h4>
+          <p class="text-xs text-slate-muted" data-i18n="val_3_desc">Customer Focused</p>
+        </div>
+        <div class="bg-warm-50 border border-warm-200 rounded-sm p-5 text-center">
+          <h4 class="font-semibold text-navy mb-1" data-i18n="val_4_title">Rasional</h4>
+          <p class="text-xs text-slate-muted" data-i18n="val_4_desc">Rational</p>
+        </div>
+        <div class="bg-warm-50 border border-warm-200 rounded-sm p-5 text-center">
+          <h4 class="font-semibold text-navy mb-1" data-i18n="val_5_title">Bekerjasama</h4>
+          <p class="text-xs text-slate-muted" data-i18n="val_5_desc">Team Work</p>
+        </div>
+        <div class="bg-warm-50 border border-warm-200 rounded-sm p-5 text-center">
+          <h4 class="font-semibold text-navy mb-1" data-i18n="val_6_title">Perbaikan Terus Menerus</h4>
+          <p class="text-xs text-slate-muted" data-i18n="val_6_desc">Continuous Improvement</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     KLIEN
+===================================================================== -->
+<section id="klien" class="section-padding bg-white" aria-labelledby="clients-heading">
+  <div class="section-container">
+    <div class="text-center mb-14 reveal">
+      <span class="section-label" data-i18n="clients_label">Klien Terkemuka</span>
+      <h2 id="clients-heading" class="section-title" data-i18n="clients_title">Dipercaya oleh Korporat &amp; Developer Besar</h2>
+      <p class="section-subtitle mx-auto mt-3" data-i18n="clients_sub">500+ pelanggan perorangan dan 27+ perusahaan telah mempercayakan kebutuhan properti mereka kepada kami.</p>
+      <span class="gold-line mx-auto block mt-5"></span>
+    </div>
+
+    <!-- Marquee -->
+    <div class="marquee-wrapper mb-16 reveal" aria-label="Logo klien unggulan kami">
+      <div class="marquee-track" aria-hidden="true">
+        <div class="marquee-item"><img src="assets/img/pertamina.png"   alt="Pertamina"   class="marquee-logo" /></div>
+        <div class="marquee-item"><img src="assets/img/kimia-farma.png" alt="Kimia Farma" class="marquee-logo" /></div>
+        <div class="marquee-item"><img src="assets/img/ghimli.jpg"      alt="Ghim Li"     class="marquee-logo" /></div>
+        <div class="marquee-item"><img src="assets/img/pln-batam.jpg"   alt="PLN Batam"   class="marquee-logo" /></div>
+        <div class="marquee-item"><img src="assets/img/indomaret.png"   alt="Indomaret"   class="marquee-logo" /></div>
+        <div class="marquee-item"><img src="assets/img/pertamina.png"   alt="Pertamina"   class="marquee-logo" /></div>
+        <div class="marquee-item"><img src="assets/img/kimia-farma.png" alt="Kimia Farma" class="marquee-logo" /></div>
+        <div class="marquee-item"><img src="assets/img/ghimli.jpg"      alt="Ghim Li"     class="marquee-logo" /></div>
+        <div class="marquee-item"><img src="assets/img/pln-batam.jpg"   alt="PLN Batam"   class="marquee-logo" /></div>
+        <div class="marquee-item"><img src="assets/img/indomaret.png"   alt="Indomaret"   class="marquee-logo" /></div>
+        <div class="marquee-item"><img src="assets/img/pertamina.png"   alt="Pertamina"   class="marquee-logo" /></div>
+        <div class="marquee-item"><img src="assets/img/kimia-farma.png" alt="Kimia Farma" class="marquee-logo" /></div>
+        <div class="marquee-item"><img src="assets/img/ghimli.jpg"      alt="Ghim Li"     class="marquee-logo" /></div>
+        <div class="marquee-item"><img src="assets/img/pln-batam.jpg"   alt="PLN Batam"   class="marquee-logo" /></div>
+        <div class="marquee-item"><img src="assets/img/indomaret.png"   alt="Indomaret"   class="marquee-logo" /></div>
+      </div>
+    </div>
+
+    <hr class="hr-gold mb-14" aria-hidden="true" />
+
+    <!-- Client Grid -->
+    <div class="reveal">
+      <h3 class="font-display text-2xl text-navy mb-8 text-center" data-i18n="clients_all_title">Semua Klien Kami</h3>
+      <div class="cg-grid" id="clientGrid">
+        <div class="cg-card cg-visible"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">KF</span></div><div class="cg-card__body"><p class="cg-name">PT Kimia Farma, Tbk</p><p class="cg-scope">PBG · SLF · UWTO</p></div></div></div>
+        <div class="cg-card cg-visible"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">PT</span></div><div class="cg-card__body"><p class="cg-name">PT Pertamina Tongkang</p><p class="cg-scope">Dokumen Legal</p></div></div></div>
+        <div class="cg-card cg-visible"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">PLN</span></div><div class="cg-card__body"><p class="cg-name">PT Bright Batam (PLN Batam)</p><p class="cg-scope">Pekerjaan Sipil</p></div></div></div>
+        <div class="cg-card cg-visible"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">IP</span></div><div class="cg-card__body"><p class="cg-name">PT Indomaret Pratama</p><p class="cg-scope">Elektrikal</p></div></div></div>
+        <div class="cg-card cg-visible"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">GL</span></div><div class="cg-card__body"><p class="cg-name">PT Ghimli Indonesia</p><p class="cg-scope">SLF (Sertifikat Laik Fungsi)</p></div></div></div>
+        <div class="cg-card cg-visible"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">DB</span></div><div class="cg-card__body"><p class="cg-name">PT DB Schenker</p><p class="cg-scope">Elektrikal</p></div></div></div>
+        <div class="cg-card cg-visible"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">GM</span></div><div class="cg-card__body"><p class="cg-name">Hotel Grand Mercure Batam</p><p class="cg-scope">SLF &amp; PKKPR</p></div></div></div>
+        <div class="cg-card cg-visible"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">RS</span></div><div class="cg-card__body"><p class="cg-name">RS Charis Medika</p><p class="cg-scope">SLF · PKKPR · Data SIO</p></div></div></div>
+        <div class="cg-card cg-visible"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">BC</span></div><div class="cg-card__body"><p class="cg-name">PT Buana Cipta Propertindo</p><p class="cg-scope">Izin Frekuensi · Dokumen Legal</p></div></div></div>
+        <div class="cg-card cg-hidden"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">DU</span></div><div class="cg-card__body"><p class="cg-name">PT Dunia Permata Utama</p><p class="cg-scope">Dokumen Legal Properti</p></div></div></div>
+        <div class="cg-card cg-hidden"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">GB</span></div><div class="cg-card__body"><p class="cg-name">CV Gustin Batam Sukses Utama</p><p class="cg-scope">Kontraktor · Developer</p></div></div></div>
+        <div class="cg-card cg-hidden"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">PM</span></div><div class="cg-card__body"><p class="cg-name">PT Pacific Marinecorp Berjaya</p><p class="cg-scope">Dokumen Legal (Shipyard)</p></div></div></div>
+        <div class="cg-card cg-hidden"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">SS</span></div><div class="cg-card__body"><p class="cg-name">PT Sumber Sarana Samudra</p><p class="cg-scope">Dokumen Legal</p></div></div></div>
+        <div class="cg-card cg-hidden"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">BM</span></div><div class="cg-card__body"><p class="cg-name">PT Beringin Mas Powerindo</p><p class="cg-scope">PBG (Power Plan)</p></div></div></div>
+        <div class="cg-card cg-hidden"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">SJ</span></div><div class="cg-card__body"><p class="cg-name">PT Sin Jaya Abadi</p><p class="cg-scope">Kontraktor · Legal</p></div></div></div>
+        <div class="cg-card cg-hidden"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">PJ</span></div><div class="cg-card__body"><p class="cg-name">PT Patra Jaya Agung</p><p class="cg-scope">SBUJK</p></div></div></div>
+        <div class="cg-card cg-hidden"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">AB</span></div><div class="cg-card__body"><p class="cg-name">PT Abadi Konstruksi Persada</p><p class="cg-scope">SBUJK</p></div></div></div>
+        <div class="cg-card cg-hidden"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">MC</span></div><div class="cg-card__body"><p class="cg-name">PT Mitra Cahaya Indah</p><p class="cg-scope">UKL UPL</p></div></div></div>
+        <div class="cg-card cg-hidden"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">HK</span></div><div class="cg-card__body"><p class="cg-name">Gereja HKBP Estomihi</p><p class="cg-scope">Alokasi Lahan Baru</p></div></div></div>
+        <div class="cg-card cg-hidden"><div class="cg-card__inner"><div class="cg-card__top cg-card__top--initials"><span class="cg-initials">AI</span></div><div class="cg-card__body"><p class="cg-name">Yayasan Al Istiqomah</p><p class="cg-scope">Dokumen Legal</p></div></div></div>
+      </div>
+
+      <div class="flex flex-col items-center mt-10 gap-3">
+        <p class="cg-count-label" id="clientCountLabel"></p>
+        <button id="clientMoreBtn" class="cg-more-btn" aria-expanded="false" aria-controls="clientGrid">
+          <span class="cg-more-btn__text" data-i18n="clients_show_more">Lihat Semua Klien</span>
+          <span class="cg-more-btn__icon" aria-hidden="true">
+            <svg class="w-4 h-4" id="clientBtnArrow" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+    </div>
+
+    <!-- Stats Banner -->
+    <div class="clients-stats-banner reveal mt-14">
+      <div class="clients-stat"><span class="clients-stat__num">500<span class="text-gold">+</span></span><span class="clients-stat__lbl" data-i18n="stat_individual">Pelanggan Perorangan</span></div>
+      <div class="clients-stat-divider" aria-hidden="true"></div>
+      <div class="clients-stat"><span class="clients-stat__num">27<span class="text-gold">+</span></span><span class="clients-stat__lbl" data-i18n="stat_companies">Perusahaan &amp; Instansi</span></div>
+      <div class="clients-stat-divider" aria-hidden="true"></div>
+      <div class="clients-stat"><span class="clients-stat__num">8<span class="text-gold">+</span></span><span class="clients-stat__lbl" data-i18n="stat_years">Tahun Pengalaman</span></div>
+      <div class="clients-stat-divider" aria-hidden="true"></div>
+      <div class="clients-stat"><span class="clients-stat__num">4</span><span class="clients-stat__lbl" data-i18n="stat_sectors">Bidang Keahlian</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     FOOTER — ringkas (tanpa nav duplikat)
+===================================================================== -->
+<footer class="bg-navy-dark" role="contentinfo" aria-label="Footer">
+  <div class="section-container py-10">
+    <div class="flex flex-col sm:flex-row items-center justify-between gap-4">
+      <a href="index.html" class="flex flex-col leading-none">
+        <span class="font-display text-base font-bold text-white tracking-tight">Media Asia</span>
+        <span class="font-display text-[10px] font-semibold tracking-[0.18em] text-gold uppercase">Property</span>
+      </a>
+      <p class="text-white/20 text-xs text-center">
+        © <span id="footer-year">2025</span> PT Media Asia Batam.
+        <span data-i18n="footer_copy">Semua hak dilindungi.</span>
+      </p>
+      <a href="index.html" class="about-back-btn about-back-btn--footer">
+        <svg class="about-back-btn__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M19 12H5M12 5l-7 7 7 7"/>
+        </svg>
+        <span data-i18n="about_back_home">Kembali ke Beranda</span>
+      </a>
+    </div>
+  </div>
+</footer>
+
+<script type="module" src="assets/js/main.js"></script>
+</body>
+</html>

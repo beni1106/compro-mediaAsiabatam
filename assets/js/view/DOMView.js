@@ -1,10 +1,3 @@
-/**
- * DOMView.js — View Layer
- * Responsible ONLY for DOM state changes: classList toggle/add/remove,
- * attribute updates, aria states. NO innerHTML of large blocks here.
- * NO data logic or business logic.
- */
-
 export class DOMView {
 
   /* ── Navbar ─────────────────────────────────────────── */

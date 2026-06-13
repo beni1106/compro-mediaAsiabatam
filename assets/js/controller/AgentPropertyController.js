@@ -9,6 +9,7 @@
  *  - Render grid + pagination
  *  - Active filter tags
  *  - Favorit (toggle)
+ *  - Modal detail properti (klik card → buka PropertyModal)
  *
  * Dipanggil oleh main.js via dynamic import.
  * Semua logika navbar/reveal sudah ditangani NavController & RevealController.
@@ -66,12 +67,12 @@ function buildCard(p) {
   const badgeClass = p.transaksi === 'Sewa' ? 'prop-card__badge--sewa' : '';
   const specs = [];
   if (p.kt > 0) specs.push(`<span class="prop-spec"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>${p.kt}</span>`);
-  if (p.km > 0) specs.push(`<span class="prop-spec"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>${p.km}</span>`);
+  if (p.km > 0) specs.push(`<span class="prop-spec"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 12a2 2 0 002 2z"/></svg>${p.km}</span>`);
   if (p.lt > 0) specs.push(`<span class="prop-spec"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>LT: ${p.lt} m²</span>`);
   if (p.lb > 0) specs.push(`<span class="prop-spec"><svg width="13" height="13" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>LB: ${p.lb} m²</span>`);
 
   return `
-  <article class="prop-card" onclick="window.location='#kontak'">
+  <article class="prop-card" data-prop-id="${p.id}" role="button" tabindex="0" aria-label="Lihat detail ${p.nama}">
     <div class="prop-card__img">
       <div class="prop-card__img-placeholder" style="background:${GRADIENTS[p.tipe] ?? GRADIENTS.Rumah}">
         ${ICONS[p.tipe] ?? ICONS.Rumah}
@@ -82,6 +83,14 @@ function buildCard(p) {
           <path stroke-linecap="round" stroke-linejoin="round" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"/>
         </svg>
       </button>
+      <!-- Hint "Lihat Detail" yang muncul saat hover -->
+      <div class="prop-card__detail-hint" aria-hidden="true">
+        <svg width="14" height="14" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/>
+          <path stroke-linecap="round" stroke-linejoin="round" d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z"/>
+        </svg>
+        Lihat Detail
+      </div>
     </div>
     <div class="prop-card__body">
       <div class="prop-card__meta">
@@ -105,7 +114,7 @@ function buildCard(p) {
         <div class="prop-card__agent-name">${p.agent}</div>
         <div class="prop-card__agent-co">${p.agen_co}</div>
       </div>
-      <button class="prop-card__more" onclick="event.stopPropagation()" aria-label="Opsi lainnya">
+      <button class="prop-card__more" aria-label="Opsi lainnya">
         <svg width="16" height="16" fill="currentColor" viewBox="0 0 24 24"><path d="M12 5c-.828 0-1.5-.672-1.5-1.5S11.172 2 12 2s1.5.672 1.5 1.5S12.828 5 12 5zm0 7c-.828 0-1.5-.672-1.5-1.5S11.172 10 12 10s1.5.672 1.5 1.5S12.828 12 12 12zm0 7c-.828 0-1.5-.672-1.5-1.5S11.172 17 12 17s1.5.672 1.5 1.5S12.828 19 12 19z"/></svg>
       </button>
     </div>
@@ -116,12 +125,12 @@ function buildCard(p) {
 
 export class AgentPropertyController {
   constructor() {
-    this._filters = { transaksi: 'semua', tipe: 'semua', lokasi: 'semua', kt: 'semua' };
-    this._topFilter  = 'semua';
+    this._filters     = { transaksi: 'semua', tipe: 'semua', lokasi: 'semua', kt: 'semua' };
+    this._topFilter   = 'semua';
     this._searchQuery = '';
-    this._sortBy     = 'terbaru';
-    this._page       = 1;
-    this._filtered   = [...PROPERTIES];
+    this._sortBy      = 'terbaru';
+    this._page        = 1;
+    this._filtered    = [...PROPERTIES];
   }
 
   init() {
@@ -131,6 +140,7 @@ export class AgentPropertyController {
     this._bindSort();
     this._bindReset();
     this._bindFavorites();
+    this._bindCardClick();   // ← klik card → redirect ke halaman detail
     this._applyAll();
   }
 
@@ -179,8 +189,8 @@ export class AgentPropertyController {
 
   _bindReset() {
     document.querySelector('.sidebar-card__reset')?.addEventListener('click', () => {
-      this._filters    = { transaksi: 'semua', tipe: 'semua', lokasi: 'semua', kt: 'semua' };
-      this._topFilter  = 'semua';
+      this._filters     = { transaksi: 'semua', tipe: 'semua', lokasi: 'semua', kt: 'semua' };
+      this._topFilter   = 'semua';
       this._searchQuery = '';
 
       const input = document.getElementById('searchInput');
@@ -209,6 +219,33 @@ export class AgentPropertyController {
       const svg   = btn.querySelector('svg');
       svg.setAttribute('fill',   isFav ? '#e05252' : 'none');
       svg.setAttribute('stroke', isFav ? '#e05252' : 'currentColor');
+    });
+  }
+
+  /**
+   * Klik card → redirect ke property-detail.html?id=N
+   * Tombol .prop-card__fav dan .prop-card__more tidak memicu redirect.
+   * Keyboard: Enter / Space juga redirect (aksesibilitas).
+   */
+  _bindCardClick() {
+    const grid = document.getElementById('propGrid');
+    if (!grid) return;
+
+    // Klik
+    grid.addEventListener('click', e => {
+      if (e.target.closest('.prop-card__fav') || e.target.closest('.prop-card__more')) return;
+      const card = e.target.closest('.prop-card[data-prop-id]');
+      if (!card) return;
+      window.location.href = `property-detail.html?id=${card.dataset.propId}`;
+    });
+
+    // Keyboard (Enter / Space)
+    grid.addEventListener('keydown', e => {
+      if (e.key !== 'Enter' && e.key !== ' ') return;
+      const card = e.target.closest('.prop-card[data-prop-id]');
+      if (!card) return;
+      e.preventDefault();
+      window.location.href = `property-detail.html?id=${card.dataset.propId}`;
     });
   }
 
@@ -246,7 +283,7 @@ export class AgentPropertyController {
     }
 
     // Sort
-    if (this._sortBy === 'termahal')     data.sort((a, b) => b.harga - a.harga);
+    if (this._sortBy === 'termahal')      data.sort((a, b) => b.harga - a.harga);
     else if (this._sortBy === 'termurah') data.sort((a, b) => a.harga - b.harga);
     else if (this._sortBy === 'terluas')  data.sort((a, b) => b.lt   - a.lt);
 
@@ -281,7 +318,7 @@ export class AgentPropertyController {
   }
 
   _renderPagination() {
-    const el    = document.getElementById('pagination');
+    const el = document.getElementById('pagination');
     if (!el) return;
 
     const total = Math.ceil(this._filtered.length / PER_PAGE);
