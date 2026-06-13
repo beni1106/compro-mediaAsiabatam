@@ -635,6 +635,46 @@ const i18n = {
     footer_privacy:      'Kebijakan Privasi',
     footer_terms:        'Syarat & Ketentuan',
     footer_copy:         'Semua hak dilindungi.',
+
+    /* ════════════════════════════════════════════════════════
+       PROPERTY DETAIL PAGE
+       ════════════════════════════════════════════════════════ */
+    pd_breadcrumb_title: 'Detail Properti',
+    pd_spesifikasi:      'Spesifikasi',
+    pd_deskripsi:        'Deskripsi Properti',
+    pd_lokasi:           'Lokasi',
+    pd_konsultasi:       'Konsultasi gratis, tanpa komitmen',
+    pd_lihat_lainnya:    'Lihat Properti Lainnya',
+    pd_chat_wa:          'Chat WhatsApp',
+    pd_telepon:          'Telepon',
+    pd_harga_lbl:        'Harga',
+    pd_not_found_title:  'Properti tidak ditemukan',
+    pd_not_found_desc:   'ID properti tidak valid atau sudah tidak tersedia.',
+    pd_not_found_back:   '← Kembali ke daftar properti',
+
+    pd_spec_kt:    'Kamar Tidur',
+    pd_spec_km:    'Kamar Mandi',
+    pd_spec_lt:    'Luas Tanah',
+    pd_spec_lb:    'Luas Bangunan',
+
+    pd_slide_depan:  'Tampak Depan',
+    pd_slide_dalam:  'Ruang Dalam',
+    pd_slide_sekitar:'Area Sekitar',
+
+    pd_di_jual: 'Dijual',
+    pd_di_sewa: 'Disewa',
+
+    pd_desc_rumah:     'Hunian yang nyaman dengan desain modern dan lokasi strategis. Cocok untuk keluarga yang menginginkan tempat tinggal berkualitas dengan akses mudah ke fasilitas umum, pusat perbelanjaan, dan sekolah terkemuka di sekitar area.',
+    pd_desc_ruko:      'Properti komersial serbaguna yang ideal untuk usaha retail, kantor, atau bisnis lainnya. Terletak di kawasan bisnis ramai dengan visibilitas tinggi dan aksesibilitas yang sangat baik untuk pelanggan dan mitra bisnis.',
+    pd_desc_apartemen: 'Unit apartemen modern dengan fasilitas lengkap dan pemandangan kota yang menawan. Dilengkapi dengan keamanan 24 jam, kolam renang, dan area parkir yang memadai untuk kenyamanan penghuni.',
+    pd_desc_lahan:     'Lahan strategis dengan dokumen lengkap dan siap bangun. Potensi investasi tinggi di kawasan berkembang pesat dengan infrastruktur yang terus ditingkatkan oleh pemerintah daerah setempat.',
+    pd_desc_kavling:   'Kavling siap bangun dengan akses jalan lebar dan utilitas lengkap (listrik, air). Lingkungan tertata rapi di perumahan terencana dengan sistem keamanan terpadu dan fasilitas umum memadai.',
+
+    pd_tipe_rumah:     'Rumah',
+    pd_tipe_ruko:      'Ruko',
+    pd_tipe_apartemen: 'Apartemen',
+    pd_tipe_lahan:     'Lahan',
+    pd_tipe_kavling:   'Kavling',
   },
 
   /* ══════════════════════════════════════════════════════════
@@ -1273,6 +1313,46 @@ const i18n = {
     footer_privacy:      'Privacy Policy',
     footer_terms:        'Terms & Conditions',
     footer_copy:         'All rights reserved.',
+
+    /* ════════════════════════════════════════════════════════
+       PROPERTY DETAIL PAGE
+       ════════════════════════════════════════════════════════ */
+    pd_breadcrumb_title: 'Property Detail',
+    pd_spesifikasi:      'Specifications',
+    pd_deskripsi:        'Property Description',
+    pd_lokasi:           'Location',
+    pd_konsultasi:       'Free consultation, no commitment',
+    pd_lihat_lainnya:    'View Other Properties',
+    pd_chat_wa:          'Chat WhatsApp',
+    pd_telepon:          'Call',
+    pd_harga_lbl:        'Price',
+    pd_not_found_title:  'Property Not Found',
+    pd_not_found_desc:   'Invalid or no longer available property ID.',
+    pd_not_found_back:   '← Back to property list',
+
+    pd_spec_kt:    'Bedrooms',
+    pd_spec_km:    'Bathrooms',
+    pd_spec_lt:    'Land Area',
+    pd_spec_lb:    'Building Area',
+
+    pd_slide_depan:  'Front View',
+    pd_slide_dalam:  'Interior',
+    pd_slide_sekitar:'Surrounding Area',
+
+    pd_di_jual: 'For Sale',
+    pd_di_sewa: 'For Rent',
+
+    pd_desc_rumah:     'A comfortable home with modern design and a strategic location. Perfect for families seeking quality housing with easy access to public facilities, shopping centers, and top schools nearby.',
+    pd_desc_ruko:      'A versatile commercial property ideal for retail, office, or other business use. Located in a busy business district with high visibility and excellent accessibility for customers and partners.',
+    pd_desc_apartemen: 'A modern apartment unit with complete facilities and stunning city views. Equipped with 24-hour security, swimming pool, and ample parking for residents\' convenience.',
+    pd_desc_lahan:     'Strategic land with complete documents and ready to build. High investment potential in a rapidly developing area with infrastructure continuously upgraded by the local government.',
+    pd_desc_kavling:   'Ready-to-build lot with wide road access and complete utilities (electricity, water). A well-organized neighborhood in a planned residential area with integrated security and adequate public facilities.',
+
+    pd_tipe_rumah:     'House',
+    pd_tipe_ruko:      'Shophouse',
+    pd_tipe_apartemen: 'Apartment',
+    pd_tipe_lahan:     'Land',
+    pd_tipe_kavling:   'Lot',
   },
 };
 

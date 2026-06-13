@@ -5,7 +5,10 @@
  *  - Temukan data properti
  *  - Render semua section: gallery (carousel), harga, spesifikasi, deskripsi, peta, CTA
  *  - Tombol kembali ke agent-property.html
+ *  - Mendukung i18n (ID/EN) — re-render otomatis saat bahasa diganti
  */
+
+import i18n from '../i18n.js';
 
 // ─── Data (sinkron dengan AgentPropertyController) ────────────────────────────
 
@@ -24,15 +27,25 @@ const PROPERTIES = [
   { id:12, nama:'Ruko Corner Batam Centre',        lokasi:'Batam Centre', tipe:'Ruko',      transaksi:'Jual', harga:2800000000, hargaText:'Rp. 2.800.000.000',    kt:0, km:2, lt:100,  lb:300, agent:'Tim Media Asia', agen_co:'Media Asia Property' },
 ];
 
-// ─── Deskripsi otomatis per tipe ──────────────────────────────────────────────
+// ─── Mapping tipe properti → key i18n deskripsi & label tipe ────────────────
 
-const DESKRIPSI = {
-  Rumah:     'Hunian yang nyaman dengan desain modern dan lokasi strategis. Cocok untuk keluarga yang menginginkan tempat tinggal berkualitas dengan akses mudah ke fasilitas umum, pusat perbelanjaan, dan sekolah terkemuka di sekitar area.',
-  Ruko:      'Properti komersial serbaguna yang ideal untuk usaha retail, kantor, atau bisnis lainnya. Terletak di kawasan bisnis ramai dengan visibilitas tinggi dan aksesibilitas yang sangat baik untuk pelanggan dan mitra bisnis.',
-  Apartemen: 'Unit apartemen modern dengan fasilitas lengkap dan pemandangan kota yang menawan. Dilengkapi dengan keamanan 24 jam, kolam renang, dan area parkir yang memadai untuk kenyamanan penghuni.',
-  Lahan:     'Lahan strategis dengan dokumen lengkap dan siap bangun. Potensi investasi tinggi di kawasan berkembang pesat dengan infrastruktur yang terus ditingkatkan oleh pemerintah daerah setempat.',
-  Kavling:   'Kavling siap bangun dengan akses jalan lebar dan utilitas lengkap (listrik, air). Lingkungan tertata rapi di perumahan terencana dengan sistem keamanan terpadu dan fasilitas umum memadai.',
+const DESKRIPSI_KEY = {
+  Rumah:     'pd_desc_rumah',
+  Ruko:      'pd_desc_ruko',
+  Apartemen: 'pd_desc_apartemen',
+  Lahan:     'pd_desc_lahan',
+  Kavling:   'pd_desc_kavling',
 };
+
+const TIPE_KEY = {
+  Rumah:     'pd_tipe_rumah',
+  Ruko:      'pd_tipe_ruko',
+  Apartemen: 'pd_tipe_apartemen',
+  Lahan:     'pd_tipe_lahan',
+  Kavling:   'pd_tipe_kavling',
+};
+
+const SLIDE_LABEL_KEYS = ['pd_slide_depan', 'pd_slide_dalam', 'pd_slide_sekitar'];
 
 // ─── Peta lokasi Batam ────────────────────────────────────────────────────────
 
@@ -55,8 +68,6 @@ const GRADIENTS = {
   Kavling:   ['linear-gradient(135deg,#1A2C1A,#0D2B1D)', 'linear-gradient(135deg,#0D2B1D,#1A2C1A)', 'linear-gradient(135deg,#1A3020,#0D2B1D)'],
 };
 
-const SLIDE_LABELS = ['Tampak Depan', 'Ruang Dalam', 'Area Sekitar'];
-
 const ICONS_LG = {
   Rumah:     `<svg width="100" height="100" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>`,
   Ruko:      `<svg width="100" height="100" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"><path stroke-linecap="round" stroke-linejoin="round" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"/></svg>`,
@@ -65,13 +76,47 @@ const ICONS_LG = {
   Kavling:   `<svg width="100" height="100" fill="none" viewBox="0 0 24 24" stroke="rgba(255,255,255,0.15)" stroke-width="0.5"><path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/></svg>`,
 };
 
+const ICONS_SPEC = {
+  bed:  `<svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>`,
+  bath: `<svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>`,
+  area: `<svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>`,
+};
+
 // ─── Helper ───────────────────────────────────────────────────────────────────
 
-function fmtWA(nama, lokasi) {
-  const msg = encodeURIComponent(
-    `Halo Media Asia Property, saya tertarik dengan properti:\n*${nama}* di ${lokasi}\n\nBoleh saya mendapatkan info lebih lanjut?`
-  );
-  return `https://wa.me/628538888159?text=${msg}`;
+/**
+ * Ambil bahasa aktif saat ini.
+ * Mendukung beberapa kemungkinan implementasi LangController:
+ *  - localStorage key 'lang'
+ *  - atribut <html lang="...">
+ *  - default 'id'
+ */
+function getCurrentLang() {
+  try {
+    const stored = localStorage.getItem('lang');
+    if (stored && i18n[stored]) return stored;
+  } catch (e) { /* ignore */ }
+
+  const htmlLang = document.documentElement.getAttribute('lang');
+  if (htmlLang && i18n[htmlLang]) return htmlLang;
+
+  const activeBtn = document.querySelector('.lang-btn.lang-btn--active');
+  if (activeBtn?.dataset?.lang && i18n[activeBtn.dataset.lang]) {
+    return activeBtn.dataset.lang;
+  }
+
+  return 'id';
+}
+
+function t(lang, key) {
+  return i18n?.[lang]?.[key] ?? i18n?.id?.[key] ?? key;
+}
+
+function fmtWA(nama, lokasi, lang) {
+  const template = lang === 'en'
+    ? `Hello Media Asia Property, I'm interested in this property:\n*${nama}* in ${lokasi}\n\nCould I get more information?`
+    : `Halo Media Asia Property, saya tertarik dengan properti:\n*${nama}* di ${lokasi}\n\nBoleh saya mendapatkan info lebih lanjut?`;
+  return `https://wa.me/628538888159?text=${encodeURIComponent(template)}`;
 }
 
 // ─── Controller ───────────────────────────────────────────────────────────────
@@ -82,6 +127,8 @@ export class PropertyDetailController {
     this._slideIndex  = 0;
     this._slides      = [];
     this._autoTimer   = null;
+    this._lang        = getCurrentLang();
+    this._onLangChange = this._onLangChange.bind(this);
   }
 
   init() {
@@ -93,25 +140,75 @@ export class PropertyDetailController {
       return;
     }
 
+    this._bindLangListener();
     this._renderAll();
+    this._updateMeta();
+  }
+
+  // ── Lang change listener ────────────────────────────────────────────────
+
+  _bindLangListener() {
+    // 1) Custom event (jika LangController men-dispatch event ini)
+    document.addEventListener('languagechange', this._onLangChange);
+    document.addEventListener('i18n:change',     this._onLangChange);
+
+    // 2) Klik langsung tombol .lang-btn (fallback paling andal)
+    document.querySelectorAll('.lang-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        // Tunggu LangController memperbarui state (atribut/localStorage) dulu
+        setTimeout(() => this._onLangChange(), 0);
+      });
+    });
+
+    // 3) MutationObserver pada atribut lang <html> (fallback tambahan)
+    const observer = new MutationObserver(() => this._onLangChange());
+    observer.observe(document.documentElement, { attributes: true, attributeFilter: ['lang'] });
+  }
+
+  _onLangChange() {
+    const newLang = getCurrentLang();
+    if (newLang === this._lang) return;
+    this._lang = newLang;
+
+    if (!this._prop) return;
+
+    // Re-render bagian yang mengandung teks i18n
+    this._renderCarousel(this._prop);
+    this._renderSpecs(this._prop);
+    this._renderTexts(this._prop);
     this._updateMeta();
   }
 
   // ── Not found ─────────────────────────────────────────────────────────────
 
   _renderNotFound() {
+    const lang = this._lang;
     document.getElementById('pd-content')?.remove();
     const nf = document.getElementById('pd-not-found');
-    if (nf) nf.style.display = 'flex';
+    if (!nf) return;
+
+    nf.style.display = 'flex';
+
+    const titleEl = nf.querySelector('h1');
+    const descEl  = nf.querySelector('p');
+    const linkEl  = nf.querySelector('a');
+
+    if (titleEl) titleEl.textContent = t(lang, 'pd_not_found_title');
+    if (descEl)  descEl.textContent  = t(lang, 'pd_not_found_desc');
+    if (linkEl)  linkEl.textContent  = t(lang, 'pd_not_found_back');
   }
 
   // ── Meta ──────────────────────────────────────────────────────────────────
 
   _updateMeta() {
-    const p = this._prop;
+    const p    = this._prop;
+    const lang = this._lang;
+    const tipeLabel = t(lang, TIPE_KEY[p.tipe] ?? 'pd_tipe_rumah');
+    const transaksiLabel = p.transaksi === 'Sewa' ? t(lang, 'pd_di_sewa') : t(lang, 'pd_di_jual');
+
     document.title = `${p.nama} — Media Asia Property`;
     document.querySelector('meta[name="description"]')
-      ?.setAttribute('content', `${p.tipe} di${p.transaksi === 'Sewa' ? 'sewa' : 'jual'} di ${p.lokasi}, Batam. ${p.hargaText}. Hubungi Media Asia Property.`);
+      ?.setAttribute('content', `${tipeLabel} ${transaksiLabel} di ${p.lokasi}, Batam. ${p.hargaText}. Hubungi Media Asia Property.`);
   }
 
   // ── Render semua section ──────────────────────────────────────────────────
@@ -126,32 +223,168 @@ export class PropertyDetailController {
     // Gallery carousel
     this._renderCarousel(p);
 
+    // Header info + teks i18n lainnya
+    this._renderTexts(p);
+
+    // Spesifikasi
+    this._renderSpecs(p);
+
+    // Peta
+    const iframe = document.getElementById('pd-map-iframe');
+    if (iframe) iframe.src = LOK_MAPS[p.lokasi] ?? LOK_MAPS['Batam Centre'];
+
+    // Agent
+    this._setText('pd-agent-name', p.agent);
+    this._setText('pd-agent-co',   p.agen_co);
+  }
+
+  /**
+   * Render semua teks yang bergantung pada bahasa:
+   * header, harga, deskripsi, label lokasi, section titles, CTA, sidebar note, dll.
+   */
+  _renderTexts(p) {
+    const lang = this._lang;
+    const tipeLabel = t(lang, TIPE_KEY[p.tipe] ?? 'pd_tipe_rumah');
+
     // Header info
-    this._setText('pd-tipe-lokasi', `${p.tipe} · ${p.lokasi}, Batam`);
+    this._setText('pd-tipe-lokasi', `${tipeLabel} · ${p.lokasi}, Batam`);
     this._setText('pd-nama',        p.nama);
     this._setText('pd-harga',       p.hargaText);
 
     // Sidebar harga
     this._setText('pd-harga-sidebar', p.hargaText);
 
-    // Spesifikasi
-    this._renderSpecs(p);
-
     // Deskripsi
-    this._setText('pd-deskripsi', p.deskripsi ?? DESKRIPSI[p.tipe] ?? '');
+    const descKey = DESKRIPSI_KEY[p.tipe] ?? 'pd_desc_rumah';
+    this._setText('pd-deskripsi', p.deskripsi ?? t(lang, descKey));
 
-    // Peta
-    const iframe = document.getElementById('pd-map-iframe');
-    if (iframe) iframe.src = LOK_MAPS[p.lokasi] ?? LOK_MAPS['Batam Centre'];
+    // Lokasi label
     this._setText('pd-map-label', `${p.lokasi}, Batam, Kepulauan Riau`);
 
-    // Agent
-    this._setText('pd-agent-name', p.agent);
-    this._setText('pd-agent-co',   p.agen_co);
+    // Breadcrumb "Detail Properti" (jika belum diisi nama properti — fallback)
+    const breadcrumbName = document.getElementById('pd-breadcrumb-name');
+    if (breadcrumbName && !breadcrumbName.textContent) {
+      breadcrumbName.textContent = t(lang, 'pd_breadcrumb_title');
+    }
 
-    // CTA links
+    // Section titles (tanpa hapus SVG icon di dalamnya)
+    this._setSectionTitle('pd-specs-title',  'pd_spesifikasi');
+    this._setSectionTitle('pd-deskripsi-title', 'pd_deskripsi');
+    this._setSectionTitle('pd-lokasi-title', 'pd_lokasi');
+
+    // Sidebar harga label
+    const sidebarPriceLbl = document.querySelector('.pd-sidebar-price-lbl');
+    if (sidebarPriceLbl) sidebarPriceLbl.textContent = t(lang, 'pd_harga_lbl');
+
+    // CTA buttons
+    this._setCtaText('pd-btn-wa',        'pd_chat_wa');
+    this._setCtaText('pd-btn-wa-mobile', 'pd_chat_wa');
+    this._setCtaText('pd-btn-phone',     'pd_telepon', true);
+
+    // Sidebar note
+    this._setNoteText('.pd-sidebar-note', 'pd_konsultasi');
+
+    // Back link
+    this._setBackLinkText('.pd-back-link', 'pd_lihat_lainnya');
+
+    // CTA links (WA dengan pesan sesuai bahasa)
     const waBtn = document.getElementById('pd-btn-wa');
-    if (waBtn) waBtn.href = fmtWA(p.nama, p.lokasi);
+    if (waBtn) waBtn.href = fmtWA(p.nama, p.lokasi, lang);
+
+    const waMobile = document.getElementById('pd-btn-wa-mobile');
+    if (waMobile) waMobile.href = fmtWA(p.nama, p.lokasi, lang);
+  }
+
+  /**
+   * Set teks section title (h2) tanpa menghapus <svg> icon di dalamnya.
+   * Mencari/menambahkan span#<id> sebagai pembungkus teks.
+   */
+  _setSectionTitle(spanId, i18nKey) {
+    let span = document.getElementById(spanId);
+    if (span) {
+      span.textContent = t(this._lang, i18nKey);
+      return;
+    }
+
+    // Jika span belum ada (HTML lama), cari h2 berdasarkan posisi & bungkus teksnya
+    const map = {
+      'pd-specs-title':     '.pd-specs-section .pd-section-title',
+      'pd-deskripsi-title': '#pd-deskripsi',
+      'pd-lokasi-title':    '.pd-map-wrap',
+    };
+
+    if (spanId === 'pd-specs-title') {
+      const h2 = document.querySelector('.pd-specs-section .pd-section-title');
+      this._wrapTitleText(h2, spanId, i18nKey);
+    } else if (spanId === 'pd-deskripsi-title') {
+      const desc = document.getElementById('pd-deskripsi');
+      const h2 = desc?.closest('.pd-section')?.querySelector('.pd-section-title');
+      this._wrapTitleText(h2, spanId, i18nKey);
+    } else if (spanId === 'pd-lokasi-title') {
+      const mapWrap = document.querySelector('.pd-map-wrap');
+      const h2 = mapWrap?.closest('.pd-section')?.querySelector('.pd-section-title');
+      this._wrapTitleText(h2, spanId, i18nKey);
+    }
+  }
+
+  _wrapTitleText(h2, spanId, i18nKey) {
+    if (!h2) return;
+    // Hapus text node lama (di luar svg), sisipkan span baru
+    Array.from(h2.childNodes).forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE) node.remove();
+    });
+    const span = document.createElement('span');
+    span.id = spanId;
+    span.textContent = t(this._lang, i18nKey);
+    h2.appendChild(span);
+  }
+
+  /**
+   * Set teks tombol CTA tanpa menghapus <svg> icon di dalamnya.
+   * Jika preserveNumber=true (untuk tombol telepon), nomor telepon tetap dipertahankan
+   * dan hanya label "Telepon"/"Call" yang diganti pada teks tooltip (aria-label tidak diubah agar nomor tetap tampil).
+   */
+  _setCtaText(elId, i18nKey, isPhoneBtn = false) {
+    const el = document.getElementById(elId);
+    if (!el) return;
+
+    if (isPhoneBtn) {
+      // Untuk tombol telepon: biarkan nomor telepon tetap tampil,
+      // hanya update bila elemen punya span teks khusus.
+      let span = el.querySelector('.pd-cta-label-text');
+      if (span) {
+        span.textContent = t(this._lang, i18nKey);
+      }
+      // Jika tidak ada span khusus, biarkan nomor telepon apa adanya (tidak diubah)
+      return;
+    }
+
+    // Untuk tombol WhatsApp: ganti text node setelah svg
+    Array.from(el.childNodes).forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+        node.textContent = ' ' + t(this._lang, i18nKey);
+      }
+    });
+  }
+
+  _setNoteText(selector, i18nKey) {
+    const el = document.querySelector(selector);
+    if (!el) return;
+    Array.from(el.childNodes).forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+        node.textContent = t(this._lang, i18nKey);
+      }
+    });
+  }
+
+  _setBackLinkText(selector, i18nKey) {
+    const el = document.querySelector(selector);
+    if (!el) return;
+    Array.from(el.childNodes).forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE && node.textContent.trim()) {
+        node.textContent = t(this._lang, i18nKey);
+      }
+    });
   }
 
   // ── Carousel ──────────────────────────────────────────────────────────────
@@ -160,12 +393,13 @@ export class PropertyDetailController {
     const gallery = document.getElementById('pd-gallery');
     if (!gallery) return;
 
+    const lang = this._lang;
     const gradients = GRADIENTS[p.tipe] ?? GRADIENTS.Rumah;
     const icon      = ICONS_LG[p.tipe]   ?? ICONS_LG.Rumah;
-    const badge     = `<span class="pd-badge ${p.transaksi === 'Sewa' ? 'pd-badge--sewa' : 'pd-badge--jual'}">Di${p.transaksi === 'Jual' ? 'jual' : 'sewa'}</span>`;
+    const badgeLabel = p.transaksi === 'Sewa' ? t(lang, 'pd_di_sewa') : t(lang, 'pd_di_jual');
+    const badge     = `<span class="pd-badge ${p.transaksi === 'Sewa' ? 'pd-badge--sewa' : 'pd-badge--jual'}">${badgeLabel}</span>`;
 
     // Build slides HTML
-    // Jika ada foto nyata, ganti div.pd-slide-placeholder dengan <img>
     const slidesHTML = gradients.map((grad, i) => `
       <div class="pd-slide" data-index="${i}" aria-hidden="${i !== 0}">
         <div class="pd-slide-placeholder" style="background:${grad}">
@@ -173,7 +407,7 @@ export class PropertyDetailController {
         </div>
         <div class="pd-gallery__shimmer" aria-hidden="true"></div>
         <div class="pd-gallery__overlay" aria-hidden="true"></div>
-        <span class="pd-slide-label">${SLIDE_LABELS[i] ?? `Foto ${i + 1}`}</span>
+        <span class="pd-slide-label">${t(lang, SLIDE_LABEL_KEYS[i] ?? SLIDE_LABEL_KEYS[0])}</span>
       </div>
     `).join('');
 
@@ -181,6 +415,9 @@ export class PropertyDetailController {
     const dotsHTML = gradients.map((_, i) =>
       `<button class="pd-dot ${i === 0 ? 'pd-dot--active' : ''}" data-dot="${i}" aria-label="Foto ${i + 1}"></button>`
     ).join('');
+
+    // Simpan slide index aktif sebelum re-render (untuk re-render saat ganti bahasa)
+    const prevIndex = this._slideIndex || 0;
 
     gallery.innerHTML = `
       ${badge}
@@ -192,7 +429,7 @@ export class PropertyDetailController {
 
       <!-- Counter -->
       <div class="pd-carousel-counter" aria-live="polite">
-        <span id="pd-slide-cur">1</span> / <span id="pd-slide-total">${gradients.length}</span>
+        <span id="pd-slide-cur">${prevIndex + 1}</span> / <span id="pd-slide-total">${gradients.length}</span>
       </div>
 
       <!-- Prev / Next -->
@@ -214,7 +451,10 @@ export class PropertyDetailController {
     `;
 
     this._slides     = Array.from(gallery.querySelectorAll('.pd-slide'));
-    this._slideIndex = 0;
+    this._slideIndex = Math.min(prevIndex, this._slides.length - 1);
+
+    // Set slide aktif sesuai index sebelumnya (penting saat re-render karena ganti bahasa)
+    this._updateCarousel();
 
     // Bind controls
     document.getElementById('pd-prev')?.addEventListener('click', () => this._prevSlide());
@@ -228,7 +468,7 @@ export class PropertyDetailController {
     this._bindSwipe(gallery);
 
     // Auto-advance setiap 5 detik
-    this._startAuto();
+    this._restartAuto();
   }
 
   _goToSlide(index) {
@@ -283,24 +523,23 @@ export class PropertyDetailController {
     const wrap = document.getElementById('pd-specs');
     if (!wrap) return;
 
+    const lang = this._lang;
+
     const items = [
-      p.kt > 0 ? { icon: 'bed',   label: 'Kamar Tidur',   val: `${p.kt} KT`    } : null,
-      p.km > 0 ? { icon: 'bath',  label: 'Kamar Mandi',   val: `${p.km} KM`    } : null,
-      p.lt > 0 ? { icon: 'area',  label: 'Luas Tanah',    val: `${p.lt} m²`    } : null,
-      p.lb > 0 ? { icon: 'area',  label: 'Luas Bangunan', val: `${p.lb} m²`    } : null,
+      p.kt > 0 ? { icon: 'bed',   label: t(lang, 'pd_spec_kt'), val: `${p.kt} ${lang === 'en' ? 'BR' : 'KT'}` } : null,
+      p.km > 0 ? { icon: 'bath',  label: t(lang, 'pd_spec_km'), val: `${p.km} ${lang === 'en' ? 'BA' : 'KM'}` } : null,
+      p.lt > 0 ? { icon: 'area',  label: t(lang, 'pd_spec_lt'), val: `${p.lt} m²`    } : null,
+      p.lb > 0 ? { icon: 'area',  label: t(lang, 'pd_spec_lb'), val: `${p.lb} m²`    } : null,
     ].filter(Boolean);
 
-    if (!items.length) { wrap.closest('.pd-specs-section')?.remove(); return; }
-
-    const icons = {
-      bed:  `<svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>`,
-      bath: `<svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>`,
-      area: `<svg width="22" height="22" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5"><path stroke-linecap="round" stroke-linejoin="round" d="M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4"/></svg>`,
-    };
+    if (!items.length) {
+      wrap.closest('.pd-specs-section')?.remove();
+      return;
+    }
 
     wrap.innerHTML = items.map(s => `
       <div class="pd-spec-item">
-        <div class="pd-spec-icon">${icons[s.icon]}</div>
+        <div class="pd-spec-icon">${ICONS_SPEC[s.icon]}</div>
         <div>
           <div class="pd-spec-val">${s.val}</div>
           <div class="pd-spec-lbl">${s.label}</div>
